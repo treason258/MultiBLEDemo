@@ -1,13 +1,16 @@
 package com.mjiayou.trecoredemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.mjiayou.trecore.ui.TCActivity;
+
+public class MainActivity extends TCActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addRightTextView("DEBUG", MENU_DEBUG);
     }
 }

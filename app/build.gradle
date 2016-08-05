@@ -25,6 +25,14 @@ android {
     sourceSets {
         main.res.srcDirs += 'src/main/res-trecore'
     }
+
+    productFlavors {
+        // -1.调试包 - alpha
+        alpha {}
+        // 0.未分渠道包 - beta
+        beta {}
+    }
+    productFlavors.all { flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name] }
 }
 
 dependencies {
