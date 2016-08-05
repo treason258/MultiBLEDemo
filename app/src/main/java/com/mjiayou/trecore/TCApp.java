@@ -45,7 +45,7 @@ public class TCApp extends Application {
     // APP TAG
     private static final String TAG = "TCApp";
     // APP_NAME
-    public final String APP_NAME = "tcdemo";
+    public final String APP_NAME = "trecoredemo";
 
     // mApplication
     private static TCApp mApp;

@@ -1,4 +1,12 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
+
+def buildTime(String yyMMddHHmm) {
+    def simpleDateFormat = new SimpleDateFormat(yyMMddHHmm)
+    simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"))
+    return simpleDateFormat.format(new Date())
+}
 
 android {
     compileSdkVersion 24
@@ -9,12 +17,66 @@ android {
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
+    }
+    signingConfigs {
+        debug {
+            storeFile file("trecore-debug.jks") // 0d5bd6d898273e2edd70a889517a5087
+//            storeFile file("trecoredemo-release.jks") // c6668ef00f0773ac3dc6afc2aeb6e1ee
+//            storePassword "xiaoya"
+//            keyAlias "trecoredemo"
+//            keyPassword "xiaoya"
+        }
+        release {
+            storeFile file("trecoredemo-release.jks") // c6668ef00f0773ac3dc6afc2aeb6e1ee
+            storePassword "xiaoya"
+            keyAlias "trecoredemo"
+            keyPassword "xiaoya"
+        }
     }
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false // 移除无用的resource文件
+            signingConfig signingConfigs.debug
+
+            versionNameSuffix "-alpha${buildTime("")}" // 版本号后缀，yyMM，yyMMdd，yyMMddHHmm
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "alpha"] // 默认是 alpha 的渠道，代表调试包
+
+            // 定义输出文件名
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    // 默认名称 -> app-alpha-debug-unaligned.apk
+                    if (outputFile != null && outputFile.name.endsWith('debug-unaligned.apk')) {
+                        // 输出APK名称为 app-alpha-debug-unaligned.apk
+                        def fileName = "app-alpha-debug-unaligned.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true // 移除无用的resource文件
+            signingConfig signingConfigs.release
+
+            // 定义输出文件名
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    // 默认名称 -> app-alpha-release.apk
+                    if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                        // 输出APK名称为 proname-1.0.0-beta-release.apk
+                        def fileName = "trecoredemo-${defaultConfig.versionName}-${variant.productFlavors[0].name}-release.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
         }
     }
 
