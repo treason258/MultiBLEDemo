@@ -110,7 +110,6 @@ sourceSets {
 需要操作的大概有：
 com.mjiayou.trecore.net.RequestAdapter
 com.mjiayou.trecore.net.RequestBuilder
-com.mjiayou.trecore.net.RequestBuilder
 com.mjiayou.trecore.ui.*
 com.mjiayou.trecore.util.ThemeUtil
 com.mjiayou.trecore.util.DialogUtil

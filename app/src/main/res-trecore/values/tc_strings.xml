@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- tc_net_error -->
+    <string name="tc_error_no_connection">通讯失败，请检查你的网络设置</string>
+    <string name="tc_error_time_out">连接超时</string>
+    <string name="tc_error_server">服务器通讯错误</string>
+    <string name="tc_error_parse">数据格式错误</string>
+    <string name="tc_error_other">网络未知异常</string>
+    <string name="tc_error_response_null">响应数据为空</string>
+
+    <!-- tc_app_key -->
+    <!-- 友盟-HoHo -->
+    <string name="umeng_app_key">57426ae2e0f55a273e002a67</string>
+    <string name="umeng_channel">alpha</string>
+    <!-- 新浪-HoHo -->
+    <string name="sina_app_key">3195141802</string>
+    <string name="sina_app_secret">49868700fb1fbbc8e7c04567378089f5</string>
+    <!-- QQ-HoHo -->
+    <string name="qq_app_id">1104982031</string>
+    <string name="qq_app_key">gNgKHspD7RXMVzqF</string>
+    <string name="qq_app_id_scheme">tencent1104982031</string>
+    <!-- 微信-HoHo -->
+    <string name="weixin_app_id">wx23b144bd536a06a0</string>
+    <string name="weixin_app_secret">8d9f85f3d3a4ff3448cda7497705cb4b</string>
+
+    <!-- **************** project **************** -->
+
+</resources>

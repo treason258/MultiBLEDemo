@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><!-- dialog -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/tc_white"
+    android:orientation="vertical"></LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/tc_transparent">
+
+    <!-- dialog -->
+    <LinearLayout
+        android:id="@+id/layout_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- title -->
+        <LinearLayout
+            android:id="@+id/layout_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_white"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:padding="@dimen/tc_margin_normal"
+                android:text="tv_title"
+                android:textColor="@color/tc_theme"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <include
+                layout="@layout/tc_layout_line_horizontal_theme"
+                android:layout_width="match_parent"
+                android:layout_height="2px" />
+        </LinearLayout>
+
+        <!-- message -->
+        <LinearLayout
+            android:id="@+id/layout_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_white"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/tc_margin_small"
+                android:paddingLeft="@dimen/tc_margin_normal"
+                android:paddingRight="@dimen/tc_margin_normal"
+                android:paddingTop="@dimen/tc_margin_small"
+                android:text="tv_message"
+                android:textColor="@color/tc_gray"
+                android:textSize="@dimen/tc_text_size_small" />
+
+            <include layout="@layout/tc_layout_line_horizontal" />
+        </LinearLayout>
+
+        <!-- menu -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout_option_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tc_white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <include layout="@layout/tc_layout_menu_item_left" />
+
+                <include layout="@layout/tc_layout_menu_item_left" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>

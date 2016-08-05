@@ -1,0 +1,59 @@
+<!--
+    M (x y) 把画笔移动到x,y，要准备在这个地方画图了。
+
+    A(rx ry x-axis-rotation large-arc-flag sweep-flag x y)
+        android:pathData=" M50,50 a10,10 1,1 0 1,0"
+        rx ry 椭圆半径
+        x-axis-rotation x轴旋转角度
+        large-arc-flag 为0时表示取小弧度，1时取大弧度 （舍取的时候，是要长的还是短的）
+        sweep-flag 0取逆时针方向，1取顺时针方向
+
+        android:pathData=" M50,50 a10,5 0 0 0 0 7
+        10，5 为椭圆x，y轴半径
+        第一个0 为 x轴旋转角度
+        第二个0 为取大小弧度，0为小，1为大
+        第三个0 为顺逆时针，0为逆1为顺
+        第四个0  为修改修改起始点在椭圆中的位置，y轴.
+        第四个 7 为修改修改起始点在椭圆中的位置，x轴。
+
+    L (x y) 直线连到x,y，还有简化命令H(x) 水平连接、V(y)垂直连接。
+        android:pathData=" M10,0 L10,40 40,40"
+        把画笔放在（10,0）位置
+        连线10，40点
+        在连线40，40点
+        于是，一个直角三角形出来了~这里没有写z，没什么关系。
+
+    Q(x1 y1 x y)，控制点（x1,y1），终点x,y
+        android:pathData="M0,0 q30,90 80,20"
+        控制点1，30,90
+        控制点2，80,20
+
+    C(x1 y1 x2 y2 x y)，控制点（x1,y1）（ x2,y2），终点x,y 。
+        android:pathData=" M0,0 c0,0 30,90 80,20"
+        C 第一控制点(0,0) 第二控制点(30,90) 结束点(80,20) 或 c 第一控制点 第二控制点 结束点
+
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportHeight="32.0"
+    android:viewportWidth="32.0">
+    <path
+        android:fillColor="#88ff0000"
+        android:pathData="M15.5,0.5 a15.5,15.5 0 1 0 1 0" />
+    <path
+        android:fillColor="#8800ff00"
+        android:pathData="M0,0 L32,0 L32,32 0,32" />
+    <path
+        android:fillColor="#880000ff"
+        android:pathData="M0,0 q10,0 10,10" />
+    <path
+        android:fillColor="#88ffff00"
+        android:pathData="M0,0 c20,5 30,10 20,20" />
+    <path
+        android:fillColor="#8800ffff"
+        android:pathData="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+    <path
+        android:fillColor="#88ff00ff"
+        android:pathData="" />
+</vector>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/tc_transparent">
+
+    <!-- dialog -->
+    <LinearLayout
+        android:id="@+id/layout_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tc_white"
+        android:orientation="vertical">
+
+        <!-- 提示 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/tc_margin_small"
+            android:text="滚动时间，系统自动计算年龄、星座"
+            android:textSize="@dimen/tc_text_size_big" />
+
+        <include layout="@layout/tc_layout_line_horizontal" />
+
+        <!-- 年龄 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/tc_margin_small"
+            android:paddingLeft="@dimen/tc_margin_normal"
+            android:paddingRight="@dimen/tc_margin_normal"
+            android:paddingTop="@dimen/tc_margin_small">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年龄："
+                android:textColor="@color/tc_text_black"
+                android:textSize="@dimen/tc_text_size_large" />
+
+            <TextView
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="tv_age"
+                android:textColor="@color/tc_text_black"
+                android:textSize="@dimen/tc_text_size_large" />
+        </LinearLayout>
+
+        <include layout="@layout/tc_layout_line_horizontal" />
+
+        <!-- 星座 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/tc_margin_small"
+            android:paddingLeft="@dimen/tc_margin_normal"
+            android:paddingRight="@dimen/tc_margin_normal"
+            android:paddingTop="@dimen/tc_margin_small">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="星座："
+                android:textColor="@color/tc_text_black"
+                android:textSize="@dimen/tc_text_size_large" />
+
+            <TextView
+                android:id="@+id/tv_constellation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="tv_constellation"
+                android:textColor="@color/tc_text_black"
+                android:textSize="@dimen/tc_text_size_large" />
+        </LinearLayout>
+
+        <include layout="@layout/tc_layout_line_horizontal" />
+
+        <!-- timepicker -->
+        <LinearLayout
+            android:id="@+id/layout_timepicker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/tc_margin_big"
+            android:paddingRight="@dimen/tc_margin_big">
+
+            <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+            <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+            <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/hour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+            <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+        </LinearLayout>
+
+        <include layout="@layout/tc_layout_line_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tc_selector_rect_solid_white_to_gray_light"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/tc_margin_small"
+            android:paddingLeft="@dimen/tc_margin_normal"
+            android:paddingRight="@dimen/tc_margin_normal"
+            android:paddingTop="@dimen/tc_margin_small"
+            android:text="确定"
+            android:textColor="@color/tc_text_black"
+            android:textSize="@dimen/tc_text_size_large"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+</RelativeLayout>

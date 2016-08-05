@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="@dimen/tc_margin_small">
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tc_selector_rect_solid_gray_light_to_theme"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingBottom="@dimen/tc_margin_small"
+        android:paddingLeft="@dimen/tc_margin_large"
+        android:paddingRight="@dimen/tc_margin_large"
+        android:paddingTop="@dimen/tc_margin_small"
+        android:text="tv_menu"
+        android:textColor="@color/tc_selector_color_black_to_white"
+        android:textSize="@dimen/tc_text_size_normal"
+        android:textStyle="normal" />
+
+</LinearLayout>

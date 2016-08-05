@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/tc_white">
+
+    <!-- dialog -->
+    <LinearLayout
+        android:id="@+id/layout_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tc_transparent"
+        android:orientation="vertical">
+
+        <!-- title -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/tc_theme"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/tc_selector_rect_solid_transparent_to_white_alpha"
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:maxWidth="@dimen/tc_menu_min_width"
+                android:minWidth="@dimen/tc_menu_min_width"
+                android:scaleType="center"
+                android:src="@drawable/tc_back"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:padding="@dimen/tc_margin_mini"
+                android:singleLine="true"
+                android:text="管理员列表"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/tc_white"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <!-- list -->
+        <ListView
+            android:id="@+id/lv_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/tc_transparent"
+            android:dividerHeight="0dp" />
+    </LinearLayout>
+</RelativeLayout>

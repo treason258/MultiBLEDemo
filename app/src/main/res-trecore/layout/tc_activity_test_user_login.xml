@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tc_backgroud"
+    android:orientation="vertical"
+    tools:context="com.mjiayou.trecore.ui.test.TestUserLoginActivity">
+
+    <!-- 输入手机号 -->
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tc_margin_normal"
+        android:layout_marginRight="@dimen/tc_margin_normal"
+        android:layout_marginTop="@dimen/tc_margin_normal"
+        android:background="@color/tc_gray_light"
+        android:hint="请输入手机号"
+        android:inputType="number"
+        android:padding="@dimen/tc_margin_small" />
+
+    <!-- 输入密码 -->
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tc_margin_normal"
+        android:layout_marginRight="@dimen/tc_margin_normal"
+        android:layout_marginTop="@dimen/tc_margin_small"
+        android:background="@color/tc_gray_light"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:padding="@dimen/tc_margin_small" />
+
+    <!-- 忘记密码 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/tv_forget_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/tc_margin_small"
+            android:text="忘记密码"
+            android:textColor="@color/tc_black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 注册 -->
+        <TextView
+            android:id="@+id/tv_register"
+            style="@style/tc_button"
+            android:text="注册" />
+
+        <!-- 登录 -->
+        <TextView
+            android:id="@+id/tv_login"
+            style="@style/tc_button"
+            android:text="登录" />
+
+    </LinearLayout>
+
+    <!-- 第三方登录 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="@dimen/tc_margin_normal">
+
+        <ImageView
+            android:id="@+id/iv_login_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/tc_margin_small"
+            android:src="@drawable/umeng_socialize_sina_on" />
+
+        <ImageView
+            android:id="@+id/iv_login_wechat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/tc_margin_small"
+            android:src="@drawable/umeng_socialize_wechat" />
+
+        <ImageView
+            android:id="@+id/iv_login_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/tc_margin_small"
+            android:src="@drawable/umeng_socialize_qq_on" />
+    </LinearLayout>
+
+</LinearLayout>

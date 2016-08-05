@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- tc-color -->
+    <color name="tc_transparent">#00000000</color>
+    <color name="tc_red">#ff0000</color>
+    <color name="tc_red_alpha">#88ff0000</color>
+    <color name="tc_green">#00ff00</color>
+    <color name="tc_green_alpha">#8800ff00</color>
+    <color name="tc_yellow">#ffff00</color>
+    <color name="tc_yellow_alpha">#88ffff00</color>
+    <color name="tc_blue">#0000ff</color>
+    <color name="tc_bule_alpha">#880000ff</color>
+    <color name="tc_black">#000000</color>
+    <color name="tc_black_alpha">#88000000</color>
+    <color name="tc_white">#ffffff</color>
+    <color name="tc_white_alpha">#88ffffff</color>
+    <color name="tc_gray">#888888</color>
+    <color name="tc_gray_alpha">#88888888</color>
+    <color name="tc_gray_dark">#aaaaaa</color>
+    <color name="tc_gray_light">#dddddd</color>
+
+    <!-- tc-color-text -->
+    <color name="tc_text_black">#333333</color>
+    <color name="tc_text_gray">#6e6e6e</color>
+
+    <!-- tc-theme -->
+    <color name="tc_theme">#f6c71e</color>
+    <color name="tc_theme_alpha">#88f6c71e</color>
+    <color name="tc_backgroud">#e8e8e8</color>
+    <color name="tc_theme_blue">#8bc7e0</color>
+
+    <!-- **************** project **************** -->
+
+</resources>

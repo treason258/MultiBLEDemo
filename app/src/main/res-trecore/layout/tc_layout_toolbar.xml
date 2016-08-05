@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_bar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/theme_bg_title"
+    android:orientation="vertical">
+
+    <!-- 内容 -->
+    <RelativeLayout
+        android:id="@+id/layout_bar_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <!-- left -->
+        <LinearLayout
+            android:id="@+id/layout_left_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:minWidth="@dimen/tc_menu_min_width"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <!-- demo-left-image -->
+            <include layout="@layout/tc_layout_toolbar_menu_image" />
+
+        </LinearLayout>
+
+        <!-- right -->
+        <LinearLayout
+            android:id="@+id/layout_right_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:minWidth="@dimen/tc_menu_min_width"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <!-- demo-right-text -->
+            <include layout="@layout/tc_layout_toolbar_menu_text" />
+
+        </LinearLayout>
+
+        <!-- title -->
+        <LinearLayout
+            android:id="@+id/layout_title_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <!-- demo-title-text -->
+            <include layout="@layout/tc_layout_toolbar_title_text" />
+
+            <!-- demo-title-image -->
+            <include layout="@layout/tc_layout_toolbar_title_image" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- 分割线 -->
+    <LinearLayout
+        android:id="@+id/layout_bar_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_bar_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/theme_bg_title_line" />
+    </LinearLayout>
+</LinearLayout>
