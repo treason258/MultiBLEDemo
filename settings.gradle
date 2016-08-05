@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':lib_TreCore', ':lib_TreView', ':lib_Umeng'
