@@ -30,6 +30,6 @@ public class TestJNIActivity extends TCActivity {
         setContentView(R.layout.activity_test_jni);
         ButterKnife.inject(this);
 
-        mTvJni.setText("来自libtest_trejni.so的问候 -> " + new TestTreJNIUtil().getHello());
+        mTvJni.setText("来自 testjni.so的问候 -> " + new TestJNIUtil().getHello());
     }
 }

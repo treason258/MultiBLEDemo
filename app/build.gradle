@@ -20,7 +20,7 @@ android {
         versionName "1.0.0"
 
         ndk {
-            moduleName "test_trejni" //生成的so名字
+            moduleName "testjni" //生成的so名字
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips" //输出指定三种abi体系结构下的so库
         }
     }
