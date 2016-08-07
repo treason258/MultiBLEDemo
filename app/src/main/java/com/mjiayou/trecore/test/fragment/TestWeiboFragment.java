@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui.test.fragment;
+package com.mjiayou.trecore.test.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

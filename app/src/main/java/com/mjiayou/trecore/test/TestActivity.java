@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui.test;
+package com.mjiayou.trecore.test;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,13 +22,13 @@ import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.widget.TCConfigs;
 import com.mjiayou.trecore.widget.TCRouter;
 import com.mjiayou.trecore.widget.dialog.DialogHelper;
+import com.mjiayou.trecoredemo.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import com.mjiayou.trecoredemo.R;
 
 public class TestActivity extends TCActivity {
 
@@ -139,16 +139,22 @@ public class TestActivity extends TCActivity {
                 UmengHelper.openShare(mActivity, null, UmengHelper.SHARE_FOR_NORMAL, tcumShare);
             }
         }));
-        tcMenus.add(new TCMenu("TCMenuActivity Test", new View.OnClickListener() {
+        tcMenus.add(new TCMenu("TCMenuActivity", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TCMenuActivity.open(mContext, "TCMenu", MenuUtil.getTCMenus(mContext));
             }
         }));
-        tcMenus.add(new TCMenu("TextView Test", new View.OnClickListener() {
+        tcMenus.add(new TCMenu("TestHacksActivity", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TestHacksActivity.open(mContext);
+            }
+        }));
+        tcMenus.add(new TCMenu("TestJNIActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestJNIActivity.open(mContext);
             }
         }));
         return tcMenus;

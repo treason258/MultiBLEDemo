@@ -18,6 +18,11 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0.0"
+
+//        ndk {
+//            moduleName "tre_jnitest" //生成的so名字
+//            abiFilters "armeabi", "armeabi-v7a", "x86", "mips" //输出指定三种abi体系结构下的so库
+//        }
     }
     signingConfigs {
         debug {

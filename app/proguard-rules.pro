@@ -36,7 +36,7 @@
 -dontwarn android.net.http.**
 
 # 针对JS交互
--keepclassmembers class com.mjiayou.trecore.ui.test.TestActivity$JsImageGetter {
+-keepclassmembers class com.mjiayou.trecore.test.TestActivity$JsImageGetter {
     public *;
 }
 -keepattributes *Annotation*

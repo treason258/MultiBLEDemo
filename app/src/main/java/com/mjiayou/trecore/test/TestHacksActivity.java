@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui.test;
+package com.mjiayou.trecore.test;
 
 import android.content.Context;
 import android.content.Intent;

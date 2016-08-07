@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tc_backgroud"
-    tools:context="com.mjiayou.trecore.ui.test.TestWeiboActivity">
+    tools:context="com.mjiayou.trecore.test.TestWeiboActivity">
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/listview"

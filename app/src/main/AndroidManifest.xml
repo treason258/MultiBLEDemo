@@ -15,8 +15,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- ******************************** TreCore-End ******************************** -->
 
+    <!-- ******************************** TreCore-End ******************************** -->
     <application
         android:name="com.mjiayou.trecore.TCApp"
         android:allowBackup="true"
@@ -81,21 +81,23 @@
 
         <!-- ******************************** DebugActivity ******************************** -->
         <activity android:name="com.mjiayou.trecore.ui.TCMenuActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.DebugActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestWeiboActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestSplashActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestMainActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestUserLoginActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestUserRegisterActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestVideoActivity" />
-        <activity android:name="com.mjiayou.trecore.ui.test.TestHacksActivity" />
+        <activity android:name="com.mjiayou.trecore.ui.DebugActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestWeiboActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestSplashActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestMainActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestUserLoginActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestUserRegisterActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestVideoActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestHacksActivity" />
+        <activity android:name="com.mjiayou.trecore.test.TestJNIActivity" />
 
         <!-- ******************************** TreCore-End ******************************** -->
 
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

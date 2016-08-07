@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.TCResponseBody;
 import com.mjiayou.trecore.net.RequestAdapter;
-import com.mjiayou.trecore.ui.test.DebugActivity;
 import com.mjiayou.trecore.util.AssetUtil;
 import com.mjiayou.trecore.util.ClickUtil;
 import com.mjiayou.trecore.util.LogUtil;

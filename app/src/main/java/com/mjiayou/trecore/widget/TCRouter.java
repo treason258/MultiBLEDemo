@@ -3,14 +3,12 @@ package com.mjiayou.trecore.widget;
 import android.content.Context;
 import android.content.Intent;
 
-import com.mjiayou.trecore.ui.test.DebugActivity;
-import com.mjiayou.trecore.ui.test.TestActivity;
-import com.mjiayou.trecore.ui.test.TestMainActivity;
-import com.mjiayou.trecore.ui.test.TestSplashActivity;
-import com.mjiayou.trecore.ui.test.TestUserLoginActivity;
-import com.mjiayou.trecore.ui.test.TestUserRegisterActivity;
-import com.mjiayou.trecore.ui.test.TestVideoActivity;
-import com.mjiayou.trecore.ui.test.TestWeiboActivity;
+import com.mjiayou.trecore.test.TestMainActivity;
+import com.mjiayou.trecore.test.TestSplashActivity;
+import com.mjiayou.trecore.test.TestUserLoginActivity;
+import com.mjiayou.trecore.test.TestUserRegisterActivity;
+import com.mjiayou.trecore.test.TestVideoActivity;
+import com.mjiayou.trecore.test.TestWeiboActivity;
 import com.mjiayou.trecore.util.ClickUtil;
 
 /**

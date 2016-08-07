@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui.test;
+package com.mjiayou.trecore.test;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.f2prateek.dart.Dart;
 import com.mjiayou.trecore.ui.TCActivity;
-import com.mjiayou.trecore.ui.test.fragment.TestHomeFragment;
-import com.mjiayou.trecore.ui.test.fragment.TestUserFragment;
-import com.mjiayou.trecore.ui.test.fragment.TestWeiboFragment;
+import com.mjiayou.trecore.test.fragment.TestHomeFragment;
+import com.mjiayou.trecore.test.fragment.TestUserFragment;
+import com.mjiayou.trecore.test.fragment.TestWeiboFragment;
 import com.mjiayou.trecore.util.ToastUtil;
 
 import com.mjiayou.trecoredemo.R;
