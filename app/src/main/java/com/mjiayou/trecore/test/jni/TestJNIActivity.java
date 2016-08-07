@@ -1,17 +1,17 @@
-package com.mjiayou.trecore.test;
+package com.mjiayou.trecore.test.jni;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.mjiayou.trecore.ui.TCActivity;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class TestJNIActivity extends AppCompatActivity {
+public class TestJNIActivity extends TCActivity {
 
     @InjectView(R.id.tv_jni)
     TextView mTvJni;

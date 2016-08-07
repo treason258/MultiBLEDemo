@@ -90,7 +90,7 @@
         <activity android:name="com.mjiayou.trecore.test.TestUserRegisterActivity" />
         <activity android:name="com.mjiayou.trecore.test.TestVideoActivity" />
         <activity android:name="com.mjiayou.trecore.test.TestHacksActivity" />
-        <activity android:name="com.mjiayou.trecore.test.TestJNIActivity" />
+        <activity android:name="com.mjiayou.trecore.test.jni.TestJNIActivity" />
 
         <!-- ******************************** TreCore-End ******************************** -->
 
