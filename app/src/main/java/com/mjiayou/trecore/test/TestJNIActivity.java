@@ -13,12 +13,6 @@ import butterknife.InjectView;
 
 public class TestJNIActivity extends AppCompatActivity {
 
-//    public native String getHello();
-//
-//    static {
-//        System.loadLibrary("tre_jnitest");
-//    }
-
     @InjectView(R.id.tv_jni)
     TextView mTvJni;
 
@@ -36,6 +30,6 @@ public class TestJNIActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_jni);
         ButterKnife.inject(this);
 
-//        mTvJni.setText("来自libtre_jnitest.so的问候 -> " + getHello());
+        mTvJni.setText("来自libtest_trejni.so的问候 -> " + new TestTreJNIUtil().getHello());
     }
 }
