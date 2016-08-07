@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.test;
+package com.mjiayou.trecore.test.component;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;

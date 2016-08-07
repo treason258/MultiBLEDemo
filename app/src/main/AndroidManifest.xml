@@ -101,6 +101,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.mjiayou.trecore.test.customview.TestCustomViewActivity"></activity>
     </application>
 
 </manifest>

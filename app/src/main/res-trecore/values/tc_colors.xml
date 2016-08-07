@@ -10,7 +10,7 @@
     <color name="tc_yellow">#ffff00</color>
     <color name="tc_yellow_alpha">#88ffff00</color>
     <color name="tc_blue">#0000ff</color>
-    <color name="tc_bule_alpha">#880000ff</color>
+    <color name="tc_blue_alpha">#880000ff</color>
     <color name="tc_black">#000000</color>
     <color name="tc_black_alpha">#88000000</color>
     <color name="tc_white">#ffffff</color>

@@ -15,6 +15,7 @@ import com.mjiayou.trecore.bean.entity.TCUMShare;
 import com.mjiayou.trecore.helper.GsonHelper;
 import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.net.RequestAdapter;
+import com.mjiayou.trecore.test.customview.TestCustomViewActivity;
 import com.mjiayou.trecore.test.jni.TestJNIActivity;
 import com.mjiayou.trecore.ui.TCActivity;
 import com.mjiayou.trecore.ui.TCMenuActivity;
@@ -156,6 +157,12 @@ public class TestActivity extends TCActivity {
             @Override
             public void onClick(View view) {
                 TestJNIActivity.open(mContext);
+            }
+        }));
+        tcMenus.add(new TCMenu("TestCustomViewActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestCustomViewActivity.open(mContext);
             }
         }));
         return tcMenus;

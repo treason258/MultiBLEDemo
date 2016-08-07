@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tc="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mjiayou.trecore.test.customview.TestCustomViewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- CustomView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_gray_dark"
+            android:gravity="center">
+
+            <com.mjiayou.trecore.test.customview.CustomView
+                android:layout_width="300dp"
+                android:layout_height="300dp" />
+        </LinearLayout>
+
+        <!-- CodeView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_gray_light"
+            android:gravity="center">
+
+            <com.mjiayou.trecore.test.customview.VerCodeView
+                android:id="@+id/vercodeview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tc_margin_small"
+                android:padding="@dimen/tc_margin_small"
+                tc:backgroud="@color/tc_theme"
+                tc:text="1234"
+                tc:textColor="@color/tc_red"
+                tc:textSize="40sp" />
+        </LinearLayout>
+
+        <!-- CustomProgressBar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_gray_dark"
+            android:gravity="center">
+
+            <com.mjiayou.trecore.test.customview.CustomProgressBar
+                android:id="@+id/customprogressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tc_margin_small"
+                android:padding="@dimen/tc_margin_small"
+                tc:circleBorder="10dp"
+                tc:firstColor="@color/tc_red"
+                tc:secondColor="@color/tc_green"
+                tc:speed="10" />
+        </LinearLayout>
+
+        <!-- DragableLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_gray_light"
+            android:gravity="center">
+
+            <com.mjiayou.trecore.test.customview.DragableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="@dimen/tc_margin_normal"
+                    android:background="@color/tc_red_alpha"
+                    android:gravity="center"
+                    android:text="Drag"
+                    android:textColor="@color/tc_theme" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="@dimen/tc_margin_normal"
+                    android:background="@color/tc_green_alpha"
+                    android:gravity="center"
+                    android:text="AutoBack"
+                    android:textColor="@color/tc_theme" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="@dimen/tc_margin_normal"
+                    android:background="@color/tc_blue_alpha"
+                    android:gravity="center"
+                    android:text="EdgeTracker"
+                    android:textColor="@color/tc_theme" />
+            </com.mjiayou.trecore.test.customview.DragableLayout>
+        </LinearLayout>
+
+        <!-- SurfaceView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tc_gray_dark"
+            android:gravity="center">
+
+            <SurfaceView
+                android:layout_width="300dp"
+                android:layout_height="300dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
