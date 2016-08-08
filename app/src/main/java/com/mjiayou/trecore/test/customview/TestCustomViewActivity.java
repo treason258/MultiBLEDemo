@@ -3,6 +3,8 @@ package com.mjiayou.trecore.test.customview;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Surface;
+import android.view.SurfaceView;
 
 import com.mjiayou.trecore.ui.TCActivity;
 import com.mjiayou.trecoredemo.R;

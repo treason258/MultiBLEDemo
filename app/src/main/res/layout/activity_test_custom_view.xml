@@ -11,18 +11,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- CustomView -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/tc_gray_dark"
-            android:gravity="center">
-
-            <com.mjiayou.trecore.test.customview.CustomView
-                android:layout_width="300dp"
-                android:layout_height="300dp" />
-        </LinearLayout>
-
         <!-- CodeView -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,18 +90,5 @@
                     android:textColor="@color/tc_theme" />
             </com.mjiayou.trecore.test.customview.DragableLayout>
         </LinearLayout>
-
-        <!-- SurfaceView -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/tc_gray_dark"
-            android:gravity="center">
-
-            <SurfaceView
-                android:layout_width="300dp"
-                android:layout_height="300dp" />
-        </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

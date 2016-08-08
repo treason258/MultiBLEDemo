@@ -132,7 +132,6 @@ public class ViewUtil {
             public void onGlobalLayout() {
                 view.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 onGetViewWidthAndHeightListener.onGet(view.getMeasuredWidth(), view.getMeasuredHeight());
-
             }
         });
     }

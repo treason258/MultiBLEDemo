@@ -221,7 +221,7 @@ public class BitmapUtil {
 
     /**
      * calculateInSampleSize
-     * <p/>
+     * <p>
      * eg：opts.inSampleSize = computeSampleSize(opts, -1, 128*128);
      */
     private static int calculateInSampleSize(BitmapFactory.Options options, int minSideLength, int maxNumOfPixels) {
@@ -448,4 +448,18 @@ public class BitmapUtil {
 //
 //    }
 
+    /**
+     * 将byte数组转化为bitmap
+     */
+    public static Bitmap byte2bitmap(byte[] data) throws OutOfMemoryError {
+        if (null == data) {
+            return null;
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeByteArray(data, 0, data.length, options);
+        options.inSampleSize = calculateInSampleSize(options, 2000, 2000);
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeByteArray(data, 0, data.length, options);
+    }
 }

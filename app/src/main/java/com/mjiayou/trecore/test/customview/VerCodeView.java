@@ -38,14 +38,8 @@ public class VerCodeView extends View {
      */
     private int mTextSize;
 
-    /**
-     * 画笔
-     */
-    private Paint mPaint;
-    /**
-     * 绘制时控制文本绘制的范围
-     */
-    private Rect mRect;
+    private Paint mPaint; // 画笔
+    private Rect mRect; // 矩形块
 
     public VerCodeView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -94,7 +88,7 @@ public class VerCodeView extends View {
         // 初始化画笔
         mPaint = new Paint();
         mPaint.setTextSize(mTextSize);
-
+        // 初始化其他
         mRect = new Rect();
 
         // 点击事件

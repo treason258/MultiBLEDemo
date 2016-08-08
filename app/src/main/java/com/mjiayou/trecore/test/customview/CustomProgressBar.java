@@ -36,22 +36,11 @@ public class CustomProgressBar extends View {
      */
     private int mSpeed;
 
-    /**
-     * 画笔
-     */
-    private Paint mPaint;
-    /**
-     * 默认圆圈的宽度
-     */
-    private int mCircleWidth;
-    /**
-     * 当前进度
-     */
-    private int mProgress;
-    /**
-     * 是否应该开始下一个
-     */
-    private boolean isNext = false;
+    private Paint mPaint; // 画笔
+    private RectF mRectF; // 矩形块
+    private int mCircleWidth; // 默认圆圈的宽度
+    private int mProgress; // 当前进度
+    private boolean isNext = false; //是否应该开始下一个
 
     public CustomProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -102,6 +91,8 @@ public class CustomProgressBar extends View {
 
         // 初始化画笔
         mPaint = new Paint();
+        // 初始化其他
+        mRectF = new RectF();
         // 绘图线程
         new Thread() {
             public void run() {
@@ -154,7 +145,7 @@ public class CustomProgressBar extends View {
         mPaint.setStrokeWidth(mCircleBorder); // 设置圆环的宽度
         mPaint.setAntiAlias(true); // 消除锯齿
         mPaint.setStyle(Paint.Style.STROKE); // 设置空心
-        RectF oval = new RectF(centre - radius, centre - radius, centre + radius, centre + radius); // 用于定义的圆弧的形状和大小的界限
+        mRectF.set(centre - radius, centre - radius, centre + radius, centre + radius); // 用于定义的圆弧的形状和大小的界限
         // 第一颜色的圈完整，第二颜色跑
         if (!isNext) {
             // 画圆环
@@ -162,14 +153,14 @@ public class CustomProgressBar extends View {
             canvas.drawCircle(centre, centre, radius, mPaint);
             // 根据进度画圆弧
             mPaint.setColor(mSecondColor);
-            canvas.drawArc(oval, -90, mProgress, false, mPaint);
+            canvas.drawArc(mRectF, -90, mProgress, false, mPaint);
         } else {
             // 画圆环
             mPaint.setColor(mSecondColor);
             canvas.drawCircle(centre, centre, radius, mPaint);
             // 根据进度画圆弧
             mPaint.setColor(mFirstColor);
-            canvas.drawArc(oval, -90, mProgress, false, mPaint);
+            canvas.drawArc(mRectF, -90, mProgress, false, mPaint);
         }
     }
 }
