@@ -19,6 +19,7 @@ import com.mjiayou.trecore.test.canvas.TestCanvasActivity;
 import com.mjiayou.trecore.test.customview.TestCustomViewActivity;
 import com.mjiayou.trecore.test.jni.TestJNIActivity;
 import com.mjiayou.trecore.test.surfaceview.TestSurfaceViewActivity;
+import com.mjiayou.trecore.test.touchevent.TestTouchActivity;
 import com.mjiayou.trecore.ui.TCActivity;
 import com.mjiayou.trecore.ui.TCMenuActivity;
 import com.mjiayou.trecore.util.MenuUtil;
@@ -183,6 +184,12 @@ public class TestActivity extends TCActivity {
             @Override
             public void onClick(View view) {
                 TestCameraActivity.open(mContext);
+            }
+        }));
+        tcMenus.add(new TCMenu("TestTouchActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestTouchActivity.open(mContext);
             }
         }));
         return tcMenus;

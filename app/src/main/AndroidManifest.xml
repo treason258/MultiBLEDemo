@@ -104,7 +104,8 @@
         <activity android:name="com.mjiayou.trecore.test.customview.TestCustomViewActivity" />
         <activity android:name="com.mjiayou.trecore.test.canvas.TestCanvasActivity" />
         <activity android:name="com.mjiayou.trecore.test.surfaceview.TestSurfaceViewActivity" />
-        <activity android:name="com.mjiayou.trecore.test.TestCameraActivity"></activity>
+        <activity android:name="com.mjiayou.trecore.test.TestCameraActivity" />
+        <activity android:name="com.mjiayou.trecore.test.touchevent.TestTouchActivity"></activity>
     </application>
 
 </manifest>
