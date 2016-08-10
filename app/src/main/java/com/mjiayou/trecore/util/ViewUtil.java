@@ -2,6 +2,7 @@ package com.mjiayou.trecore.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -145,5 +146,35 @@ public class ViewUtil {
                 return true;
             }
         });
+    }
+
+    /**
+     * printMotionEvent
+     */
+    public static void printMotionEvent(MotionEvent event, String viewStr, String method) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                LogUtil.i(TAG, viewStr + " | " + method + " | action ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_UP:
+                LogUtil.i(TAG, viewStr + " | " + method + " | action ACTION_UP");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                LogUtil.i(TAG, viewStr + " | " + method + " | action ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                LogUtil.i(TAG, viewStr + " | " + method + " | action ACTION_CANCEL");
+                break;
+            default:
+                LogUtil.i(TAG, viewStr + " | " + method + " | action " + event.getAction());
+                break;
+        }
+    }
+
+    /**
+     * printEvent
+     */
+    public static void printEvent(String viewStr, String method) {
+        LogUtil.i(TAG, viewStr + " | " + method);
     }
 }

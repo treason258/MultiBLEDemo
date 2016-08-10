@@ -3,27 +3,36 @@ package com.mjiayou.trecore.test.touchevent;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.mjiayou.trecore.util.ViewUtil;
 
 /**
- * Created by treason on 16/8/9.
+ * Created by treason on 16/8/10.
  */
-public class TestButton extends Button {
+public class TestLinearLayout extends LinearLayout {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    public TestButton(Context context, AttributeSet attrs, int defStyle) {
+    public TestLinearLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public TestButton(Context context, AttributeSet attrs) {
+    public TestLinearLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TestButton(Context context) {
+    public TestLinearLayout(Context context) {
         this(context, null);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        ViewUtil.printMotionEvent(event, TAG, "onInterceptTouchEvent");
+
+        return super.onInterceptTouchEvent(event);
+//        super.onInterceptTouchEvent(event);
+//        return true;
     }
 
     @Override
