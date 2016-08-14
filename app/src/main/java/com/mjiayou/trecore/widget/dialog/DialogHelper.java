@@ -9,11 +9,10 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.mjiayou.trecore.bean.entity.TCMenu;
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.MenuUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
 
 import java.util.ArrayList;
 import java.util.List;

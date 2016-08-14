@@ -16,7 +16,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 
 import java.util.Random;
 

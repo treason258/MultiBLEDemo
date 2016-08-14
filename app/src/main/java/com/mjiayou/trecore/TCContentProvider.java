@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.test.component;
+package com.mjiayou.trecore;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -9,7 +9,9 @@ import android.support.annotation.Nullable;
 /**
  * Created by treason on 16/7/19.
  */
-public class TestProvider extends ContentProvider {
+public class TCContentProvider extends ContentProvider {
+
+    protected final String TAG = this.getClass().getSimpleName();
     
     @Override
     public boolean onCreate() {

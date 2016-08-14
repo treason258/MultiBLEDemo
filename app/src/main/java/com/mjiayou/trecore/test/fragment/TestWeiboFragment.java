@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.ui.TCFragment;
+import com.mjiayou.trecore.TCFragment;
 import com.mjiayou.trecore.util.ToastUtil;
 
 import com.mjiayou.trecoredemo.R;

@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui;
+package com.mjiayou.trecore;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Message;
@@ -20,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.TCResponseBody;
 import com.mjiayou.trecore.net.RequestAdapter;
 import com.mjiayou.trecore.util.AssetUtil;
@@ -64,7 +64,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
 
     // 显示生命周期
     protected final String TAG_LIFE_CYCLE = "activity_life_cycle";
-    protected boolean SHOW_LIFE_CYCLE = false;
+    protected boolean SHOW_LIFE_CYCLE = true;
 
     // toolbar
     protected LinearLayout mLayoutBar;
@@ -111,7 +111,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onCreate");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onCreate");
         }
         if (!getEnableSwipeBack()) {
             switch (SharedUtil.get(this).getConfigThemeId()) {
@@ -150,9 +150,17 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     }
 
     @Override
+    protected void onRestart() {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onRestart");
+        }
+        super.onRestart();
+    }
+
+    @Override
     protected void onStart() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onStart");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onStart");
         }
         super.onStart();
     }
@@ -160,7 +168,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     @Override
     protected void onResume() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onResume");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onResume");
         }
         super.onResume();
         if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
@@ -171,7 +179,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     @Override
     protected void onPause() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onPause");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onPause");
         }
         super.onPause();
         if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
@@ -182,23 +190,15 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     @Override
     protected void onStop() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onStop");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onStop");
         }
         super.onStop();
     }
 
     @Override
-    protected void onRestart() {
-        if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onRestart");
-        }
-        super.onRestart();
-    }
-
-    @Override
     protected void onDestroy() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onDestroy");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onDestroy");
         }
         super.onDestroy();
     }
@@ -206,9 +206,49 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     @Override
     public void startActivity(Intent intent) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-startActivity");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | startActivity");
         }
         super.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | startActivityForResult");
+        }
+        super.startActivityForResult(intent, requestCode);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onNewIntent");
+        }
+        super.onNewIntent(intent);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onSaveInstanceState");
+        }
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onRestoreInstanceState");
+        }
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onConfigurationChanged");
+        }
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -217,22 +257,22 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
             // 因为onTrimMemory() 是在API 14 里添加的，你可以在老版本里使用onLowMemory() 回调，大致跟TRIM_MEMORY_COMPLETE事件相同。
             switch (level) {
                 case TRIM_MEMORY_RUNNING_MODERATE:
-                    LogUtil.i(TAG_LIFE_CYCLE, "onTrimMemory -> 你的应用正在运行，并且不会被杀死，但设备已经处于低内存状态，并且开始杀死LRU缓存里的内存。");
+                    LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onTrimMemory -> 你的应用正在运行，并且不会被杀死，但设备已经处于低内存状态，并且开始杀死LRU缓存里的内存。");
                     break;
                 case TRIM_MEMORY_RUNNING_LOW:
-                    LogUtil.i(TAG_LIFE_CYCLE, "onTrimMemory -> 你的应用正在运行，并且不会被杀死，但设备处于内存更低的状态，所以你应该释放无用资源以提高系统性能（直接影响app性能）");
+                    LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onTrimMemory -> 你的应用正在运行，并且不会被杀死，但设备处于内存更低的状态，所以你应该释放无用资源以提高系统性能（直接影响app性能）");
                     break;
                 case TRIM_MEMORY_RUNNING_CRITICAL:
-                    LogUtil.i(TAG_LIFE_CYCLE, "onTrimMemory -> 你的应用还在运行，但系统已经杀死了LRU缓存里的大多数进程，所以你应该在此时释放所有非关键的资源。如果系统无法回收足够的内存，它会清理掉所有LRU缓存，并且开始杀死之前优先保持的进程，像那些运行着service的。同时，当你的app进程当前被缓存，你可能会从onTrimMemory() 收到下面的几种level。");
+                    LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onTrimMemory -> 你的应用还在运行，但系统已经杀死了LRU缓存里的大多数进程，所以你应该在此时释放所有非关键的资源。如果系统无法回收足够的内存，它会清理掉所有LRU缓存，并且开始杀死之前优先保持的进程，像那些运行着service的。同时，当你的app进程当前被缓存，你可能会从onTrimMemory() 收到下面的几种level。");
                     break;
                 case TRIM_MEMORY_BACKGROUND:
-                    LogUtil.i(TAG_LIFE_CYCLE, "onTrimMemory -> 系统运行在低内存状态，并且你的进程已经接近LRU列表的顶端（即将被清理）。虽然你的app进程还没有很高的被杀死风险，系统可能已经清理LRU里的进程，你应该释放那些容易被恢复的资源，如此可以让你的进程留在缓存里，并且当用户回到app时快速恢复。");
+                    LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onTrimMemory -> 系统运行在低内存状态，并且你的进程已经接近LRU列表的顶端（即将被清理）。虽然你的app进程还没有很高的被杀死风险，系统可能已经清理LRU里的进程，你应该释放那些容易被恢复的资源，如此可以让你的进程留在缓存里，并且当用户回到app时快速恢复。");
                     break;
                 case TRIM_MEMORY_MODERATE:
-                    LogUtil.i(TAG_LIFE_CYCLE, "onTrimMemory -> 系统运行在低内存状态，你的进程在LRU列表中间附近。如果系统变得内存紧张，可能会导致你的进程被杀死。");
+                    LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onTrimMemory -> 系统运行在低内存状态，你的进程在LRU列表中间附近。如果系统变得内存紧张，可能会导致你的进程被杀死。");
                     break;
                 case TRIM_MEMORY_COMPLETE:
-                    LogUtil.i(TAG_LIFE_CYCLE, "onTrimMemory -> 系统运行在低内存状态，如果系统没有恢复内存，你的进程是首先被杀死的进程之一。你应该释放所有不重要的资源来恢复你的app状态。");
+                    LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onTrimMemory -> 系统运行在低内存状态，如果系统没有恢复内存，你的进程是首先被杀死的进程之一。你应该释放所有不重要的资源来恢复你的app状态。");
                     break;
             }
         }
@@ -241,7 +281,9 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
 
     @Override
     public void setContentView(int layoutResID) {
-//        LogUtil.i(TCConfigs.TRETEST, TAG + "-setContentView");
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | setContentView");
+        }
         mToolbarHelper = new ToolbarHelper(this, layoutResID);
         mToolbar = mToolbarHelper.getToolbar();
         if (getShowToolBar()) {

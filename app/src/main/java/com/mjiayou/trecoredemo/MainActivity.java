@@ -2,7 +2,7 @@ package com.mjiayou.trecoredemo;
 
 import android.os.Bundle;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 
 public class MainActivity extends TCActivity {
 

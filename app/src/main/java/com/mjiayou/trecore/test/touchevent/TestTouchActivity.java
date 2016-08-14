@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.ViewUtil;
 import com.mjiayou.trecoredemo.R;
 

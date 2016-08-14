@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mjiayou.trecore.ui.TCFragment;
+import com.mjiayou.trecore.TCFragment;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;

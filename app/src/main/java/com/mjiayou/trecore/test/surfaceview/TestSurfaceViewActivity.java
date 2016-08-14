@@ -12,10 +12,9 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.DeviceUtil;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.util.ViewUtil;
 import com.mjiayou.trecoredemo.R;
 
 import java.util.Timer;

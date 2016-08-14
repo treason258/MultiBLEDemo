@@ -20,7 +20,7 @@ import com.mjiayou.trecoredemo.R;
 /**
  * Created by treason on 16/8/8.
  */
-class CanvasView extends View {
+public class CanvasView extends View {
 
     private Paint mPaint; // 画笔
     private Rect mRect;

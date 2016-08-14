@@ -1,18 +1,16 @@
-package com.mjiayou.trecore.test.component;
+package com.mjiayou.trecore;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 /**
  * Created by treason on 16/7/19.
  */
-public class TestService extends Service {
+public class TCService extends Service {
 
-    private static final String TAG = "TestService";
+    protected final String TAG = this.getClass().getSimpleName();
 
     @Override
     public void onCreate() {
@@ -35,16 +33,8 @@ public class TestService extends Service {
         return null;
     }
 
-    /**
-     * 绑定对象
-     */
-    public class TestBinder extends Binder {
-
-        /**
-         * 问候
-         */
-        public void greet(String name) {
-            Log.i(TAG, "hello, " + name);
-        }
+    @Override
+    public boolean onUnbind(Intent intent) {
+        return super.onUnbind(intent);
     }
 }

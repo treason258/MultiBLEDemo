@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.AssetUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.widget.BaseVideoView;

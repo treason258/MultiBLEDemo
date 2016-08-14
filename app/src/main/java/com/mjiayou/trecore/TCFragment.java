@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui;
+package com.mjiayou.trecore;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.TCResponseBody;
 import com.mjiayou.trecore.net.RequestAdapter;
 import com.mjiayou.trecore.util.AssetUtil;
@@ -37,7 +36,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
 
     // 显示生命周期
     protected final String TAG_LIFE_CYCLE = "fragment_life_cycle";
-    protected boolean SHOW_LIFE_CYCLE = false;
+    protected boolean SHOW_LIFE_CYCLE = true;
 
     // toolbar
     protected LinearLayout mLayoutBar;
@@ -62,7 +61,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onAttach(Activity activity) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onAttach");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onAttach");
         }
         super.onAttach(activity);
     }
@@ -70,7 +69,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onCreate");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onCreate");
         }
         super.onCreate(savedInstanceState);
 
@@ -82,7 +81,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onCreateView");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onCreateView");
         }
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -90,7 +89,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onViewCreated");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onViewCreated");
         }
         super.onViewCreated(view, savedInstanceState);
     }
@@ -98,7 +97,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onStart() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onStart");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onStart");
         }
         super.onStart();
     }
@@ -106,7 +105,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onResume() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onResume");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onResume");
         }
         super.onResume();
         if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
@@ -117,7 +116,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onPause() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onPause");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onPause");
         }
         super.onPause();
         if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
@@ -128,7 +127,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onStop() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onStop");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onStop");
         }
         super.onStop();
     }
@@ -136,7 +135,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onDestroy() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onDestroy");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onDestroy");
         }
         super.onDestroy();
     }
@@ -144,7 +143,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onDestroyView() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onDestroyView");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onDestroyView");
         }
         super.onDestroyView();
     }
@@ -152,7 +151,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void onDetach() {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onDetach");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onDetach");
         }
         super.onDetach();
     }
@@ -161,9 +160,9 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (SHOW_LIFE_CYCLE) {
             if (isVisibleToUser) {
-                LogUtil.i(TAG_LIFE_CYCLE, TAG + "-setUserVisibleHint -> " + isVisibleToUser);
+                LogUtil.i(TAG, TAG_LIFE_CYCLE + " | setUserVisibleHint -> " + isVisibleToUser);
             } else {
-                LogUtil.i(TAG_LIFE_CYCLE, TAG + "-setUserVisibleHint -> " + isVisibleToUser);
+                LogUtil.i(TAG, TAG_LIFE_CYCLE + " | setUserVisibleHint -> " + isVisibleToUser);
             }
         }
         super.setUserVisibleHint(isVisibleToUser);
@@ -172,9 +171,17 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
     @Override
     public void startActivity(Intent intent) {
         if (SHOW_LIFE_CYCLE) {
-            LogUtil.i(TAG_LIFE_CYCLE, TAG + "-onAttach");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | startActivity");
         }
         super.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | startActivityForResult");
+        }
+        super.startActivityForResult(intent, requestCode);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class SharedUtil {
     private static final String TAG = "SharedUtil";
 
     // var
-    private static SharedUtil mSharedUtil;
+    private static SharedUtil mInstance;
     private Context mContext;
     private Gson mGson;
 
@@ -68,10 +68,14 @@ public class SharedUtil {
      * 单例模式，获取实例
      */
     public static SharedUtil get(Context context) {
-        if (mSharedUtil == null) {
-            mSharedUtil = new SharedUtil(context);
+        if (mInstance == null) {
+            synchronized (SharedUtil.class) {
+                if (mInstance == null) {
+                    mInstance = new SharedUtil(context);
+                }
+            }
         }
-        return mSharedUtil;
+        return mInstance;
     }
 
     // ******************************** 封装 ********************************

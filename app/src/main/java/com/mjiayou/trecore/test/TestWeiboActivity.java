@@ -12,7 +12,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.mjiayou.trecore.bean.TCSinaStatusesResponseBody;
 import com.mjiayou.trecore.net.RequestAdapter;
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.ConvertUtil;
 import com.mjiayou.trecore.util.PageUtil;
 import com.mjiayou.trecore.util.ToastUtil;

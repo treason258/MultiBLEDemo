@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.f2prateek.dart.Dart;
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.test.fragment.TestHomeFragment;
 import com.mjiayou.trecore.test.fragment.TestUserFragment;
 import com.mjiayou.trecore.test.fragment.TestWeiboFragment;

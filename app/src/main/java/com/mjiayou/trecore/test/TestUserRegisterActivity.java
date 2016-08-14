@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mjiayou.trecore.bean.TCResponseBody;
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;

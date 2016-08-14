@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -15,12 +14,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.BitmapUtil;
 import com.mjiayou.trecore.util.CameraUtil;
 import com.mjiayou.trecore.util.DeviceUtil;
 import com.mjiayou.trecoredemo.R;
-import com.umeng.socialize.utils.BitmapUtils;
 
 import java.util.List;
 

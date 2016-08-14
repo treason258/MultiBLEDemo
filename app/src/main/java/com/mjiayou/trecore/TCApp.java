@@ -35,6 +35,7 @@ import com.mjiayou.trecore.helper.StethoHelper;
 import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.helper.VolleyHelper;
 import com.mjiayou.trecore.util.LogUtil;
+import com.mjiayou.trecore.util.ProcessUtil;
 import com.mjiayou.trecore.widget.TCConfigs;
 
 /**
@@ -46,6 +47,10 @@ public class TCApp extends Application {
     private static final String TAG = "TCApp";
     // APP_NAME
     public final String APP_NAME = "trecoredemo";
+
+    // 显示生命周期
+    protected final String TAG_LIFE_CYCLE = "app_life_cycle";
+    protected boolean SHOW_LIFE_CYCLE = true;
 
     // mApplication
     private static TCApp mApp;
@@ -87,6 +92,12 @@ public class TCApp extends Application {
         mContext = getApplicationContext();
 
         initApp();
+
+        if (SHOW_LIFE_CYCLE) {
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onCreate");
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | process id -> " + ProcessUtil.getProcessId());
+            LogUtil.i(TAG, TAG_LIFE_CYCLE + " | process name -> " + ProcessUtil.getProcessName(mContext));
+        }
     }
 
     /**

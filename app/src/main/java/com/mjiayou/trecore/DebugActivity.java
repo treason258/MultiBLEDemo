@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.ui;
+package com.mjiayou.trecore;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,14 +18,13 @@ import com.mjiayou.trecore.util.UserUtil;
 import com.mjiayou.trecore.widget.TCRouter;
 import com.mjiayou.trecore.widget.dialog.DialogHelper;
 import com.mjiayou.trecore.widget.dialog.TCAlertDialog;
+import com.mjiayou.trecoredemo.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-
-import com.mjiayou.trecoredemo.R;
 
 public class DebugActivity extends TCActivity {
 
@@ -82,8 +81,21 @@ public class DebugActivity extends TCActivity {
         tcMenus.add(new TCMenu("设置第一次启动", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedUtil.get(mContext).setConfigIsFirst(true);
-                ToastUtil.show(mContext, "设置成功");
+                DialogHelper.createTCAlertDialog(mContext,
+                        "提示", "确认设置第一次启动？",
+                        "确定", "取消", true,
+                        new TCAlertDialog.OnTCActionListener() {
+                            @Override
+                            public void onOkAction() {
+                                SharedUtil.get(mContext).setConfigIsFirst(true);
+                                ToastUtil.show(mContext, "设置第一次启动成功");
+                            }
+
+                            @Override
+                            public void onCancelAction() {
+
+                            }
+                        }).show();
             }
         }));
         tcMenus.add(new TCMenu("模拟登录", new View.OnClickListener() {

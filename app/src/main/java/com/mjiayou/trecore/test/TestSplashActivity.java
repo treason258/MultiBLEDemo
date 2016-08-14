@@ -3,7 +3,7 @@ package com.mjiayou.trecore.test;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.HandlerUtil;
 import com.mjiayou.trecore.widget.TCRouter;
 

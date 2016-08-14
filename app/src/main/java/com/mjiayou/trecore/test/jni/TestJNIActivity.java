@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.ui.TCActivity;
+import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
@@ -30,6 +30,7 @@ public class TestJNIActivity extends TCActivity {
         setContentView(R.layout.activity_test_jni);
         ButterKnife.inject(this);
 
-        mTvJni.setText("来自 testjni.so的问候 -> " + new TestJNIUtil().getHello());
+        String msg = "来自 testjni.so的问候 -> " + TestJNIUtil.get().getHello();
+        mTvJni.setText(msg);
     }
 }

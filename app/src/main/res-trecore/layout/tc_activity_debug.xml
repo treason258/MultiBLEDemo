@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/tc_backgroud"
-    tools:context="com.mjiayou.trecore.ui.DebugActivity">
+    tools:context="com.mjiayou.trecore.DebugActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
