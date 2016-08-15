@@ -2,6 +2,7 @@ package com.mjiayou.trecore;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.Nullable;
@@ -17,10 +18,14 @@ public class TCContentProvider extends ContentProvider {
 
     protected final String TAG = this.getClass().getSimpleName();
 
+    protected Context mContext;
+
     @Override
     public boolean onCreate() {
 //        LogUtil.i(TAG, "onCreate | current thread -> " + ThreadUtil.getThreadName());
         Log.i(TAG, "onCreate | current thread -> " + ThreadUtil.getThreadName());
+
+        mContext = getContext();
         return false;
     }
 
