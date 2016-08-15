@@ -23,6 +23,7 @@ import com.mjiayou.trecore.util.AssetUtil;
 import com.mjiayou.trecore.util.ClickUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.ThemeUtil;
+import com.mjiayou.trecore.widget.TCConfigs;
 import com.mjiayou.trecoredemo.R;
 import com.umeng.analytics.MobclickAgent;
 
@@ -108,7 +109,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onResume");
         }
         super.onResume();
-        if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
+        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onPageStart("MainScreen");
         }
     }
@@ -119,7 +120,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onPause");
         }
         super.onPause();
-        if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
+        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onPageEnd("MainScreen");
         }
     }

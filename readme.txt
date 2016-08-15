@@ -48,10 +48,10 @@ versionCode
 versionName
 minifyEnabled
 
-2.App.java
+2.TCApp
+
+3.TCConfigs
 mMode = MODE_RELEASE;
-DEBUG_SERVER = false;
-DEBUG_TEST = false
 
 // ******************************** 更新日志 ********************************
 

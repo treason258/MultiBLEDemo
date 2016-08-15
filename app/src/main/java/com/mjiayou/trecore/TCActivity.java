@@ -171,7 +171,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onResume");
         }
         super.onResume();
-        if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
+        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onResume(this);
         }
     }
@@ -182,7 +182,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onPause");
         }
         super.onPause();
-        if (TCApp.get().SWITCH_UMENG_ANALYTICS_ON) {
+        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onPause(this);
         }
     }

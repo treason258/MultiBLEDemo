@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.entity.TCUMShare;
 import com.mjiayou.trecore.util.ExitUtil;
 import com.mjiayou.trecore.util.LogUtil;
@@ -80,21 +79,21 @@ public class UmengHelper {
         // 自定义参数、自动更新
 
         // 友盟调试模式
-        MobclickAgent.setDebugMode(TCApp.get().DEBUG_UMENG);
+        MobclickAgent.setDebugMode(TCConfigs.DEBUG_UMENG);
         // 友盟异常统计
         MobclickAgent.setCatchUncaughtExceptions(true);
 
         // 社会化分享调试模式
-        com.umeng.socialize.utils.Log.LOG = TCApp.get().DEBUG_UMENG;
+        com.umeng.socialize.utils.Log.LOG = TCConfigs.DEBUG_UMENG;
 
         // 在线参数调试模式
-        OnlineConfigAgent.getInstance().setDebugMode(TCApp.get().DEBUG_UMENG);
+        OnlineConfigAgent.getInstance().setDebugMode(TCConfigs.DEBUG_UMENG);
         // 自动更新调试模式
-        UpdateConfig.setDebug(TCApp.get().DEBUG_UMENG);
+        UpdateConfig.setDebug(TCConfigs.DEBUG_UMENG);
         // 自动更新集成检测
-        UmengUpdateAgent.setUpdateCheckConfig(TCApp.get().DEBUG_UMENG);
+        UmengUpdateAgent.setUpdateCheckConfig(TCConfigs.DEBUG_UMENG);
         // 用户反馈调试模式
-        com.umeng.fb.util.Log.LOG = TCApp.get().DEBUG_UMENG;
+        com.umeng.fb.util.Log.LOG = TCConfigs.DEBUG_UMENG;
 
 
         // 友盟统计，统计APP打开次数

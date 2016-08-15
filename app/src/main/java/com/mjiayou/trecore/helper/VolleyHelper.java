@@ -3,8 +3,8 @@ package com.mjiayou.trecore.helper;
 import android.content.Context;
 
 import com.android.volley.VolleyLog;
-import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.util.LogUtil;
+import com.mjiayou.trecore.widget.TCConfigs;
 
 /**
  * Created by treason on 16/5/14.
@@ -19,6 +19,6 @@ public class VolleyHelper {
     public static void init(Context context) {
         LogUtil.i("初始化数据 -> " + TAG);
 
-        VolleyLog.DEBUG = TCApp.get().DEBUG_VOLLEY;
+        VolleyLog.DEBUG = TCConfigs.DEBUG_VOLLEY;
     }
 }

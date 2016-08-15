@@ -2,7 +2,7 @@ package com.mjiayou.trecore.util;
 
 import android.util.Log;
 
-import com.mjiayou.trecore.TCApp;
+import com.mjiayou.trecore.widget.TCConfigs;
 
 import java.util.Stack;
 
@@ -18,13 +18,13 @@ public class LogUtil {
      * Send a VERBOSE log message.
      */
     public static void v(String tag, String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.v(tag, buildMessage(msg));
         }
     }
 
     public static void v(String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.v(TAG, buildMessage(msg));
         }
     }
@@ -33,13 +33,13 @@ public class LogUtil {
      * Send a DEBUG_LOG log message.
      */
     public static void d(String tag, String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.d(tag, buildMessage(msg));
         }
     }
 
     public static void d(String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.d(TAG, buildMessage(msg));
         }
     }
@@ -48,13 +48,13 @@ public class LogUtil {
      * Send an INFO log message.
      */
     public static void i(String tag, String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.i(tag, buildMessage(msg));
         }
     }
 
     public static void i(String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.i(TAG, buildMessage(msg));
         }
     }
@@ -63,13 +63,13 @@ public class LogUtil {
      * Send a WARN log message
      */
     public static void w(String tag, String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.w(tag, buildMessage(msg));
         }
     }
 
     public static void w(String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.w(TAG, buildMessage(msg));
         }
     }
@@ -78,25 +78,25 @@ public class LogUtil {
      * Send an ERROR log message.
      */
     public static void e(String tag, String msg, Throwable throwable) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.e(tag, buildMessage(msg), throwable);
         }
     }
 
     public static void e(String tag, String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.e(tag, buildMessage(msg));
         }
     }
 
     public static void e(String msg) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.e(TAG, buildMessage(msg));
         }
     }
 
     public static void e(String msg, Throwable throwable) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.e(TAG, buildMessage(msg), throwable);
         }
     }
@@ -106,7 +106,7 @@ public class LogUtil {
      * printStackTrace
      */
     public static void printStackTrace(Throwable throwable) {
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.e(TAG, buildMessage("printStackTrace -> "), throwable);
             throwable.printStackTrace();
         }
@@ -123,7 +123,7 @@ public class LogUtil {
 
     public static void startTraceTime(String msg) {
         traceTimeStack.push(System.currentTimeMillis());
-        if (TCApp.get().DEBUG_LOG) {
+        if (TCConfigs.DEBUG_LOG) {
             Log.d(TAG_TRACE_TIME, msg + " time = " + System.currentTimeMillis());
         }
     }
@@ -132,7 +132,7 @@ public class LogUtil {
         if (!traceTimeStack.isEmpty()) {
             long time = traceTimeStack.pop();
             long diff = System.currentTimeMillis() - time;
-            if (TCApp.get().DEBUG_LOG) {
+            if (TCConfigs.DEBUG_LOG) {
                 Log.d(TAG_TRACE_TIME, "[" + diff + "]" + msg + " time = " + System.currentTimeMillis());
             }
         }
@@ -144,7 +144,7 @@ public class LogUtil {
     protected static String buildMessage(String msg) {
         StackTraceElement caller = new Throwable().fillInStackTrace().getStackTrace()[2];
         StringBuilder builder = new StringBuilder();
-        if (TCApp.get().DEBUG_LOG_SHOW_PATH) {
+        if (TCConfigs.DEBUG_LOG_SHOW_PATH) {
             builder.append(caller.getClassName());
             builder.append(".");
             builder.append(caller.getMethodName());

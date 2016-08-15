@@ -8,7 +8,6 @@ import com.mjiayou.trecore.util.AppUtil;
 import com.mjiayou.trecore.util.DeviceUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.SharedUtil;
-
 import com.mjiayou.trecoredemo.R;
 
 /**
@@ -18,6 +17,64 @@ public class TCConfigs {
 
     private static final String TAG = "TCConfigs";
     public static final String TRETEST = "tretest";
+
+    // DEBUG开关
+    public static boolean DEBUG_SERVER; // 服务器
+    public static boolean DEBUG_TEST; // TestActivity
+    public static boolean DEBUG_LOG; // LOG
+    public static boolean DEBUG_LOG_SHOW_PATH; // LOG PATH
+    public static boolean DEBUG_VOLLEY;
+    public static boolean DEBUG_GSON;
+    public static boolean DEBUG_IMAGE_LOADER;
+    public static boolean DEBUG_UMENG;
+    public static boolean DEBUG_PULL_TO_REFRESH;
+    public static boolean DEBUG_ALIYUN_OSS;
+    // SWITCH开关
+    public static boolean SWITCH_UMENG_ANALYTICS_ON; // 友盟统计
+    // 打包模式
+    private static final int MODE_DEBUG = 0; // 调试模式
+    private static final int MODE_RELEASE = 1; // 生产模式
+
+    // 当前APP打包模式
+    private static int mMode = MODE_DEBUG;
+
+    static {
+        /**
+         * 启动模式
+         */
+        switch (mMode) {
+            case MODE_DEBUG:
+                // DEBUG模式开关
+                DEBUG_SERVER = true;
+                DEBUG_TEST = true;
+                DEBUG_LOG = true;
+                DEBUG_LOG_SHOW_PATH = false;
+                DEBUG_VOLLEY = false;
+                DEBUG_GSON = false;
+                DEBUG_IMAGE_LOADER = false;
+                DEBUG_UMENG = true;
+                DEBUG_PULL_TO_REFRESH = false;
+                DEBUG_ALIYUN_OSS = false;
+                // SWITCH-一些开关
+                SWITCH_UMENG_ANALYTICS_ON = true;
+                break;
+            case MODE_RELEASE:
+                // DEBUG模式开关
+                DEBUG_SERVER = false;
+                DEBUG_TEST = false;
+                DEBUG_LOG = false;
+                DEBUG_LOG_SHOW_PATH = false;
+                DEBUG_VOLLEY = false;
+                DEBUG_GSON = false;
+                DEBUG_IMAGE_LOADER = false;
+                DEBUG_UMENG = false;
+                DEBUG_PULL_TO_REFRESH = false;
+                DEBUG_ALIYUN_OSS = false;
+                // SWITCH-一些开关
+                SWITCH_UMENG_ANALYTICS_ON = true;
+                break;
+        }
+    }
 
     // 第三方账号
     // 友盟

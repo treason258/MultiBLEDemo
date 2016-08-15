@@ -19,6 +19,7 @@ import com.mjiayou.trecore.helper.GsonHelper;
 import com.mjiayou.trecore.util.AppUtil;
 import com.mjiayou.trecore.util.DeviceUtil;
 import com.mjiayou.trecore.util.UserUtil;
+import com.mjiayou.trecore.widget.TCConfigs;
 
 import java.lang.ref.WeakReference;
 
@@ -32,7 +33,7 @@ public class RequestAdapter {
     public static String SERVER_PATH = "hoho/";
 
     static {
-        if (TCApp.get().DEBUG_SERVER) {
+        if (TCConfigs.DEBUG_SERVER) {
             // 测试服务器 - 阿里云
             SERVER_HOST = "http://123.57.223.153:8111/";
             SERVER_PATH = "";

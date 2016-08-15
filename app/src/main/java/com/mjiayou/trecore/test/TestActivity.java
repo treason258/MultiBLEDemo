@@ -19,6 +19,7 @@ import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.net.RequestAdapter;
 import com.mjiayou.trecore.test.aidl.TestAIDLActivity;
 import com.mjiayou.trecore.test.canvas.TestCanvasActivity;
+import com.mjiayou.trecore.test.contentprovider.TestProviderActivity;
 import com.mjiayou.trecore.test.customview.TestCustomViewActivity;
 import com.mjiayou.trecore.test.jni.TestJNIActivity;
 import com.mjiayou.trecore.test.messenger.TestMessengerActivity;
@@ -81,6 +82,12 @@ public class TestActivity extends TCActivity {
             }
         }));
 
+        tcMenus.add(new TCMenu("TestProviderActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestProviderActivity.open(mContext);
+            }
+        }));
         tcMenus.add(new TCMenu("TestAIDLActivity", new View.OnClickListener() {
             @Override
             public void onClick(View view) {

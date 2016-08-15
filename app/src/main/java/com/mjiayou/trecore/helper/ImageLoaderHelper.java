@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
-import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.util.DirectoryUtil;
 import com.mjiayou.trecore.util.FileUtil;
 import com.mjiayou.trecore.util.LogUtil;
@@ -70,7 +69,7 @@ public class ImageLoaderHelper {
 
         ImageLoaderConfiguration.Builder builder = new ImageLoaderConfiguration.Builder(context);
         // 设置调试状态
-        if (TCApp.get().DEBUG_IMAGE_LOADER) {
+        if (TCConfigs.DEBUG_IMAGE_LOADER) {
             builder.writeDebugLogs();
         }
         // 内存缓存配置

@@ -56,25 +56,6 @@ public class TCApp extends Application {
     private static TCApp mApp;
     private static Context mContext;
 
-    // DEBUG开关
-    public boolean DEBUG_SERVER; // 服务器
-    public boolean DEBUG_TEST; // TestActivity
-    public boolean DEBUG_LOG; // LOG
-    public boolean DEBUG_LOG_SHOW_PATH; // LOG PATH
-    public boolean DEBUG_VOLLEY;
-    public boolean DEBUG_GSON;
-    public boolean DEBUG_IMAGE_LOADER;
-    public boolean DEBUG_UMENG;
-    public boolean DEBUG_PULL_TO_REFRESH;
-    public boolean DEBUG_ALIYUN_OSS;
-    // SWITCH开关
-    public boolean SWITCH_UMENG_ANALYTICS_ON; // 友盟统计
-    // 打包模式
-    private final int MODE_DEBUG = 0; // 调试模式
-    private final int MODE_RELEASE = 1; // 生产模式
-    // 当前APP打包模式
-    private int mMode = MODE_DEBUG;
-
     // mRequestQueue
     private RequestQueue mRequestQueue;
 
@@ -109,42 +90,6 @@ public class TCApp extends Application {
          * 初始化APP
          */
         LogUtil.i(TAG, "初始化数据 -> " + TAG);
-
-        /**
-         * 启动模式
-         */
-        switch (mMode) {
-            case MODE_DEBUG:
-                // DEBUG模式开关
-                DEBUG_SERVER = true;
-                DEBUG_TEST = true;
-                DEBUG_LOG = true;
-                DEBUG_LOG_SHOW_PATH = false;
-                DEBUG_VOLLEY = false;
-                DEBUG_GSON = false;
-                DEBUG_IMAGE_LOADER = false;
-                DEBUG_UMENG = true;
-                DEBUG_PULL_TO_REFRESH = false;
-                DEBUG_ALIYUN_OSS = false;
-                // SWITCH-一些开关
-                SWITCH_UMENG_ANALYTICS_ON = true;
-                break;
-            case MODE_RELEASE:
-                // DEBUG模式开关
-                DEBUG_SERVER = false;
-                DEBUG_TEST = false;
-                DEBUG_LOG = false;
-                DEBUG_LOG_SHOW_PATH = false;
-                DEBUG_VOLLEY = false;
-                DEBUG_GSON = false;
-                DEBUG_IMAGE_LOADER = false;
-                DEBUG_UMENG = false;
-                DEBUG_PULL_TO_REFRESH = false;
-                DEBUG_ALIYUN_OSS = false;
-                // SWITCH-一些开关
-                SWITCH_UMENG_ANALYTICS_ON = true;
-                break;
-        }
 
         /**
          * 初始化 配置信息
