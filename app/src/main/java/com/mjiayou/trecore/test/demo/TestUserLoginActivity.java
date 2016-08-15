@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.test;
+package com.mjiayou.trecore.test.demo;
 
 import android.os.Bundle;
 import android.os.Message;

@@ -17,6 +17,7 @@ import com.mjiayou.trecore.bean.entity.TCUMShare;
 import com.mjiayou.trecore.helper.GsonHelper;
 import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.net.RequestAdapter;
+import com.mjiayou.trecore.test.aidl.TestAIDLActivity;
 import com.mjiayou.trecore.test.canvas.TestCanvasActivity;
 import com.mjiayou.trecore.test.customview.TestCustomViewActivity;
 import com.mjiayou.trecore.test.jni.TestJNIActivity;
@@ -77,6 +78,13 @@ public class TestActivity extends TCActivity {
             @Override
             public void onClick(View view) {
                 ToastUtil.show(mContext, "temp");
+            }
+        }));
+
+        tcMenus.add(new TCMenu("TestAIDLActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestAIDLActivity.open(mContext);
             }
         }));
         tcMenus.add(new TCMenu("TestMessengerActivity", new View.OnClickListener() {
