@@ -68,6 +68,8 @@ public class TestActivity extends TCActivity {
         super.initView();
 
         MenuUtil.setMenus(mContext, mLayoutMenuContainer, getMenus());
+
+        // test
     }
 
     /**
