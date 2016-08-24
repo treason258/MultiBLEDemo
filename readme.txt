@@ -66,9 +66,11 @@ javah -jni com.mjiayou.trecore.test.jni.TestJNIUtil     生成JNI的.h文件
 ./adb shell
 
 dumpsys activity        列出activity堆栈列表
+
 ps | grep com.mjiayou   查看当前所存在的进程信息
 
 // ******************************** TreCore集成步骤 ********************************
+
 
 // **************** A-新建项目 ****************
 
@@ -77,6 +79,7 @@ ps | grep com.mjiayou   查看当前所存在的进程信息
 
 0-2.
 编译调试通过，提交SVN/GIT备份
+
 
 // **************** B-导入依赖库 ****************
 
@@ -102,10 +105,13 @@ packagingOptions {
 5.
 编译调试通过，提交SVN/GIT备份
 
+
 // **************** C-导入TreCore相关资源和代码 ****************
 
 6.
-拷贝 res-trecore 文件夹到 项目/app/src/main 目录下
+拷贝/app/src/main下的 res-trecore jni aidl 文件夹到 项目/app/src/main 目录下
+配置项目NDK目录
+完全替换gradle.properties文件
 
 7.
 文件 app - build.gradle 在 android 节点下添加：
@@ -117,22 +123,19 @@ sourceSets {
 拷贝 com/mjiayou/trecore 文件夹到 项目/app/src/main/java 目录下
 
 9.
-执行gradle sync，根据提示解决错误（替换import错误和删除脏数据）（可以考虑全局替换）
+执行gradle sync，根据提示解决错误（替换import错误和删除脏数据）
+可以考虑全局替换:
+import com.mjiayou.trecoredemo.R;
+TO
+import com.xxx.xxx.R;
 需要操作的大概有：
-com.mjiayou.trecore.net.RequestAdapter
-com.mjiayou.trecore.net.RequestBuilder
+com.mjiayou.trecore.net.*
 com.mjiayou.trecore.ui.*
-com.mjiayou.trecore.util.ThemeUtil
-com.mjiayou.trecore.util.DialogUtil
-com.mjiayou.trecore.util.AppUtil
-com.mjiayou.trecore.widget.ToolbarHelper
-com.mjiayou.trecore.widget.SwipeBackLayout
-com.mjiayou.trecore.widget.CircleImageView
-com.mjiayou.trecore.widget.Configs
-com.mjiayou.trecore.widget.Router
+com.mjiayou.trecore.widget.*
 
 10.
 编译调试通过，提交SVN/GIT备份
+
 
 // **************** D-接入TreCore功能 ****************
 
@@ -154,7 +157,7 @@ android:largeHeap="true"
 从 TreCore-Start 到 TreCore-End 的内容（包括友盟系列和DebugActivity等）
 
 15.
-文件 MainActivity 修改继承 BaseActivity ，在 onCreate 下添加：
+文件 MainActivity 修改继承 TCActivity ，在 onCreate 下添加：
 addRightTextView("DEBUG", MENU_DEBUG);
 
 16.
