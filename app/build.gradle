@@ -26,11 +26,11 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file("trecore-debug.jks") // 0d5bd6d898273e2edd70a889517a5087
-//            storeFile file("trecoredemo-release.jks") // c6668ef00f0773ac3dc6afc2aeb6e1ee
-//            storePassword "xiaoya"
-//            keyAlias "trecoredemo"
-//            keyPassword "xiaoya"
+//            storeFile file("trecore-debug.jks") // 0d5bd6d898273e2edd70a889517a5087
+            storeFile file("trecoredemo-release.jks") // c6668ef00f0773ac3dc6afc2aeb6e1ee
+            storePassword "xiaoya"
+            keyAlias "trecoredemo"
+            keyPassword "xiaoya"
         }
         release {
             storeFile file("trecoredemo-release.jks") // c6668ef00f0773ac3dc6afc2aeb6e1ee
