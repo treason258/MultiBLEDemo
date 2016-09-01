@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mjiayou.trecore.bean.entity.TCMenu;
-import com.mjiayou.trecore.test.TestActivity;
+import com.mjiayou.trecore.ui.TestActivity;
 import com.mjiayou.trecore.util.AppUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.MenuUtil;

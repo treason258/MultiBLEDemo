@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.test.demo;
+package com.mjiayou.trecore.ui.demo;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.HandlerUtil;
 import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import com.mjiayou.trecoredemo.R;
 
 public class TestSplashActivity extends TCActivity {
 

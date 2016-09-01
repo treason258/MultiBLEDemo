@@ -1,22 +1,40 @@
-package com.mjiayou.trecore.test.demo;
+package com.mjiayou.trecore.ui.demo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.mjiayou.trecore.TCFragment;
+import com.mjiayou.trecore.util.ToastUtil;
+import com.mjiayou.trecore.widget.TCRouter;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Created by treason on 16/5/16.
  */
-public class TestWeiboBFragment extends TCFragment {
+public class TestUserFragment extends TCFragment {
+
+    @InjectView(R.id.tv_user_info)
+    TextView mTvUserInfo;
+
+    @OnClick({R.id.btn_login, R.id.btn_logout})
+    void onClicks(View view) {
+        switch (view.getId()) {
+            case R.id.btn_login:
+                TCRouter.openTestUserLoginActivity(mContext);
+                break;
+            case R.id.btn_logout:
+                ToastUtil.show(mContext, "注销");
+                break;
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +44,7 @@ public class TestWeiboBFragment extends TCFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.tc_fragment_test_weibo_b, null);
+        View view = inflater.inflate(R.layout.tc_fragment_test_user, null);
         ButterKnife.inject(this, view);
         return view;
     }
@@ -41,14 +59,5 @@ public class TestWeiboBFragment extends TCFragment {
     @Override
     public void initView() {
         super.initView();
-
-        //步骤一：添加一个FragmentTransaction的实例
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //步骤二：用add()方法加上Fragment的对象rightFragment
-        fragmentTransaction.replace(R.id.layout_container, new TestWeiboAFragment());
-        fragmentTransaction.addToBackStack(null);
-        //步骤三：调用commit()方法使得FragmentTransaction实例的改变生效
-        fragmentTransaction.commit();
     }
 }

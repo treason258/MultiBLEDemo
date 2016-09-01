@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.test;
+package com.mjiayou.trecore.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,8 @@ import com.mjiayou.trecore.bean.entity.TCUMShare;
 import com.mjiayou.trecore.helper.GsonHelper;
 import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.net.RequestAdapter;
+import com.mjiayou.trecore.test.TestCameraActivity;
+import com.mjiayou.trecore.test.TestHacksActivity;
 import com.mjiayou.trecore.test.aidl.TestAIDLActivity;
 import com.mjiayou.trecore.test.canvas.TestCanvasActivity;
 import com.mjiayou.trecore.test.contentprovider.TestProviderActivity;

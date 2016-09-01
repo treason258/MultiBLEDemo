@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.test.demo;
+package com.mjiayou.trecore.ui.demo;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;

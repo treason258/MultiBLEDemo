@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/tc_backgroud"
     android:orientation="vertical"
-    tools:context="com.mjiayou.trecore.test.demo.TestUserLoginActivity">
+    tools:context="com.mjiayou.trecore.ui.demo.TestUserLoginActivity">
 
     <!-- 输入手机号 -->
     <EditText
