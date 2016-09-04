@@ -9,17 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.bean.TCResponseBody;
 import com.mjiayou.trecore.TCActivity;
+import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
 import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import com.mjiayou.trecoredemo.R;
 
 public class TestUserRegisterActivity extends TCActivity {
 
@@ -100,8 +100,8 @@ public class TestUserRegisterActivity extends TCActivity {
         super.callback(msg);
     }
 
-    public void refreshView(TCResponseBody responseBody) {
-        super.refreshView(responseBody);
+    public void refreshView(TCResponse response) {
+        super.refreshView(response);
         ToastUtil.show(mContext, "注册成功");
 
         String tokenId = "123456";

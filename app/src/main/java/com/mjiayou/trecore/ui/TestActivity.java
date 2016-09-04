@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.TCMenuActivity;
-import com.mjiayou.trecore.bean.TCResponseBody;
-import com.mjiayou.trecore.bean.TCSinaStatusesResponseBody;
+import com.mjiayou.trecore.bean.TCResponse;
+import com.mjiayou.trecore.bean.TCSinaStatusesResponse;
 import com.mjiayou.trecore.bean.entity.TCMenu;
 import com.mjiayou.trecore.bean.entity.TCUMShare;
 import com.mjiayou.trecore.helper.GsonHelper;
@@ -206,7 +206,7 @@ public class TestActivity extends TCActivity {
                     public void callback(Message msg) {
                         switch (msg.what) {
                             case RequestAdapter.SINA_STATUSES: {
-                                TCSinaStatusesResponseBody response = (TCSinaStatusesResponseBody) msg.obj;
+                                TCSinaStatusesResponse response = (TCSinaStatusesResponse) msg.obj;
                                 if (response != null) {
                                     ToastUtil.show(mContext, GsonHelper.get().toJson(response));
                                 } else {
@@ -218,7 +218,7 @@ public class TestActivity extends TCActivity {
                     }
 
                     @Override
-                    public void refreshView(TCResponseBody responseBody) {
+                    public void refreshView(TCResponse response) {
 
                     }
                 });

@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.mjiayou.trecore.bean.TCSinaStatusesResponseBody;
+import com.mjiayou.trecore.bean.TCSinaStatusesResponse;
 import com.mjiayou.trecore.net.RequestAdapter;
 import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.ConvertUtil;
@@ -128,7 +128,7 @@ public class TestWeiboActivity extends TCActivity {
         switch (msg.what) {
             case RequestAdapter.SINA_STATUSES:
                 showLoading(false);
-                TCSinaStatusesResponseBody response = (TCSinaStatusesResponseBody) msg.obj;
+                TCSinaStatusesResponse response = (TCSinaStatusesResponse) msg.obj;
                 if (response != null) {
                     if (PageUtil.isPullRefresh()) {
                         mList.clear();
@@ -141,7 +141,7 @@ public class TestWeiboActivity extends TCActivity {
         }
     }
 
-    public void refreshView(TCSinaStatusesResponseBody response) {
+    public void refreshView(TCSinaStatusesResponse response) {
         mList.addAll(ConvertUtil.parseSinaStatusesToString(response.getStatuses()));
         mAdapter.notifyDataSetChanged();
     }

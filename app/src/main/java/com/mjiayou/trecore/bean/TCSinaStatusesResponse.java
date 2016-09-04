@@ -9,16 +9,16 @@ import java.util.List;
 /**
  * Created by treason on 15/3/11.
  */
-public class TCSinaStatusesResponseBody extends TCResponseBody {
+public class TCSinaStatusesResponse extends TCResponse {
 
     private List<TCSinaStatuses> statuses;
 
-    public static String getData(TCSinaStatusesResponseBody result) {
+    public static String parseString(TCSinaStatusesResponse result) {
         return GsonHelper.get().toJson(result);
     }
 
-    public static TCSinaStatusesResponseBody getObject(String data) {
-        return GsonHelper.get().fromJson(data, TCSinaStatusesResponseBody.class);
+    public static TCSinaStatusesResponse parseObject(String data) {
+        return GsonHelper.get().fromJson(data, TCSinaStatusesResponse.class);
     }
 
     public List<TCSinaStatuses> getStatuses() {

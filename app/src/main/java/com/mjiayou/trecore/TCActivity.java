@@ -21,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.bean.TCResponseBody;
+import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.net.RequestAdapter;
 import com.mjiayou.trecore.util.AssetUtil;
 import com.mjiayou.trecore.util.ClickUtil;
@@ -324,7 +324,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
     }
 
     @Override
-    public void refreshView(TCResponseBody responseBody) {
+    public void refreshView(TCResponse response) {
     }
 
     /**

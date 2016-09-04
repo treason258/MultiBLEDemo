@@ -8,20 +8,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mjiayou.trecore.bean.TCResponseBody;
+import com.mjiayou.trecore.TCActivity;
+import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.bean.entity.TCUMLogin;
 import com.mjiayou.trecore.event.UserLoginStatusEvent;
-import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
 import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecoredemo.R;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import com.mjiayou.trecoredemo.R;
 import de.greenrobot.event.EventBus;
 
 public class TestUserLoginActivity extends TCActivity {
@@ -141,7 +141,7 @@ public class TestUserLoginActivity extends TCActivity {
         super.callback(msg);
     }
 
-    public void refreshView(TCResponseBody response) {
+    public void refreshView(TCResponse response) {
         super.refreshView(response);
         ToastUtil.show(mContext, "登录成功");
 

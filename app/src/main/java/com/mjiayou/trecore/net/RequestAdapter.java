@@ -10,15 +10,9 @@ import com.android.volley.Request.Method;
 import com.google.gson.Gson;
 import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.TCRequest;
-import com.mjiayou.trecore.bean.TCRequestBody;
-import com.mjiayou.trecore.bean.TCRequestHeader;
-import com.mjiayou.trecore.bean.TCResponseBody;
-import com.mjiayou.trecore.bean.TCSinaStatusesResponseBody;
-import com.mjiayou.trecore.encode.SignatureUtil;
+import com.mjiayou.trecore.bean.TCResponse;
+import com.mjiayou.trecore.bean.TCSinaStatusesResponse;
 import com.mjiayou.trecore.helper.GsonHelper;
-import com.mjiayou.trecore.util.AppUtil;
-import com.mjiayou.trecore.util.DeviceUtil;
-import com.mjiayou.trecore.util.UserUtil;
 import com.mjiayou.trecore.widget.TCConfigs;
 
 import java.lang.ref.WeakReference;
@@ -106,7 +100,7 @@ public class RequestAdapter {
         /**
          * 刷新页面
          */
-        void refreshView(TCResponseBody responseBody);
+        void refreshView(TCResponse response);
     }
 
     /**
@@ -162,25 +156,25 @@ public class RequestAdapter {
     /**
      * 获取请求数据
      */
-    private String getRequestBodyString(TCRequestBody request) {
+    private String getRequestBodyString(TCRequest request) {
         return mGson.toJson(request);
     }
 
-    /**
-     * 获取请求数据
-     */
-    private String getRequestString(TCRequestBody requestBody) {
-        String requestId = DeviceUtil.getUUID();
-        String tokenId = UserUtil.getToken();
-        String appVersion = String.valueOf(AppUtil.getVersionCode(TCApp.get()));
-        String signature = SignatureUtil.getSignature(requestId);
-
-        TCRequest request = new TCRequest();
-        request.setHeader(new TCRequestHeader(requestId, tokenId, appVersion, signature));
-        request.setBody(requestBody);
-
-        return mGson.toJson(request);
-    }
+//    /**
+//     * 获取请求数据
+//     */
+//    private String getRequestBundleString(TCRequestBundleBody requestBody) {
+//        String requestId = DeviceUtil.getUUID();
+//        String tokenId = UserUtil.getToken();
+//        String appVersion = String.valueOf(AppUtil.getVersionCode(TCApp.get()));
+//        String signature = SignatureUtil.getSignature(requestId);
+//
+//        TCRequestBundle request = new TCRequestBundle();
+//        request.setHeader(new TCRequestBundleHeader(requestId, tokenId, appVersion, signature));
+//        request.setBody(requestBody);
+//
+//        return mGson.toJson(request);
+//    }
 
     /**
      * 取消所有请求
@@ -197,25 +191,25 @@ public class RequestAdapter {
     public void base1(String base) {
         RequestEntity requestEntity = new RequestEntity(getUrl("base"));
         requestEntity.addParam("base", base);
-        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponseBody.class, BASE);
+        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
     }
 
     /**
      * 0-2.BASE
      */
-    public void base2(TCRequestBody request) {
+    public void base2(TCRequest request) {
         RequestEntity requestEntity = new RequestEntity(getUrl("base"));
         requestEntity.addParam("base", getRequestBodyString(request));
-        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponseBody.class, BASE);
+        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
     }
 
     /**
      * 0-3.BASE
      */
-    public void base3(TCRequestBody request) {
+    public void base3(TCRequest request) {
         RequestEntity requestEntity = new RequestEntity(getUrl("base"));
         requestEntity.setRequestBody(getRequestBodyString(request));
-        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponseBody.class, BASE);
+        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
     }
 
     /**
@@ -226,7 +220,7 @@ public class RequestAdapter {
         String url = "https://api.weibo.com/2/statuses/public_timeline.json?source=812913819&count=10";
         RequestEntity requestEntity = new RequestEntity(url);
         requestEntity.setMethodCode(Method.GET);
-        mRequestBuilder.buildAndAddRequest(requestEntity, TCSinaStatusesResponseBody.class, SINA_STATUSES);
+        mRequestBuilder.buildAndAddRequest(requestEntity, TCSinaStatusesResponse.class, SINA_STATUSES);
     }
 
     // ******************************** custom ********************************
