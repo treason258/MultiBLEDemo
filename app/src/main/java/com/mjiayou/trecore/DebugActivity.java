@@ -15,7 +15,7 @@ import com.mjiayou.trecore.util.MenuUtil;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.Router;
+import com.mjiayou.trecore.helper.Router;
 import com.mjiayou.trecore.widget.dialog.DialogHelper;
 import com.mjiayou.trecore.widget.dialog.TCAlertDialog;
 import com.mjiayou.trecoredemo.R;

@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.widget;
+package com.mjiayou.trecore.helper;
 
 
 import android.content.Context;
@@ -138,21 +138,36 @@ public class Configs {
     public static final String TAG_RESPONSE_STRING = "response_data_string";
     public static final String TAG_RESPONSE_OBJECT = "response_data_object";
 
-    // ******************************** temp cache ********************************
+    // ******************************** Configs ********************************
 
+    private static Configs mInstance;
     // 包名
-    private static String packageName;
+    private String packageName;
     // 版本信息
-    private static int versionCode;
-    private static String versionName;
+    private int versionCode;
+    private String versionName;
     // 屏幕信息
-    private static int screenWidth;
-    private static int screenHeight;
+    private int screenWidth;
+    private int screenHeight;
+
+    /**
+     * 单例模式，获取实例
+     */
+    public static Configs get() {
+        if (mInstance == null) {
+            synchronized (Configs.class) {
+                if (mInstance == null) {
+                    mInstance = new Configs();
+                }
+            }
+        }
+        return mInstance;
+    }
 
     /**
      * 初始化
      */
-    public static void init(Context context) {
+    public void init(Context context) {
         LogUtil.i("初始化数据 -> " + TAG);
 
         /**
@@ -195,52 +210,52 @@ public class Configs {
         }
     }
 
-    public static String getPackageName() {
+    public String getPackageName() {
         return packageName;
     }
 
-    public static void setPackageName(String packageName) {
-        Configs.packageName = packageName;
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
-    public static int getVersionCode() {
+    public int getVersionCode() {
         return versionCode;
     }
 
-    public static void setVersionCode(int versionCode) {
-        Configs.versionCode = versionCode;
+    public void setVersionCode(int versionCode) {
+        this.versionCode = versionCode;
     }
 
-    public static String getVersionName() {
+    public String getVersionName() {
         return versionName;
     }
 
-    public static void setVersionName(String versionName) {
-        Configs.versionName = versionName;
+    public void setVersionName(String versionName) {
+        this.versionName = versionName;
     }
 
-    public static int getScreenWidth() {
+    public int getScreenWidth() {
         return screenWidth;
     }
 
-    public static int getScreenWidth(double ratio) {
+    public int getScreenWidth(double ratio) {
         return (int) (screenWidth * ratio);
     }
 
-    public static void setScreenWidth(int screenWidth) {
-        Configs.screenWidth = screenWidth;
+    public void setScreenWidth(int screenWidth) {
+        this.screenWidth = screenWidth;
     }
 
-    public static int getScreenHeight() {
+    public int getScreenHeight() {
         return screenHeight;
     }
 
-    public static int getScreenHeight(double ratio) {
+    public int getScreenHeight(double ratio) {
         return (int) (screenHeight * ratio);
     }
 
-    public static void setScreenHeight(int screenHeight) {
-        Configs.screenHeight = screenHeight;
+    public void setScreenHeight(int screenHeight) {
+        this.screenHeight = screenHeight;
     }
 
     // ******************************** project ********************************

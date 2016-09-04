@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.mjiayou.trecore.TCFragment;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.Router;
+import com.mjiayou.trecore.helper.Router;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;

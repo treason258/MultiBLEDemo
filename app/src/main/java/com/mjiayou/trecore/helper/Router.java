@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.widget;
+package com.mjiayou.trecore.helper;
 
 import android.content.Context;
 import android.content.Intent;

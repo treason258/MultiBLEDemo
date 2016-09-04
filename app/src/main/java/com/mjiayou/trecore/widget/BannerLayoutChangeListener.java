@@ -3,6 +3,7 @@ package com.mjiayou.trecore.widget;
 import android.view.View;
 
 import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
+import com.mjiayou.trecore.helper.Configs;
 
 /**
  * Created by treason on 15/11/15.

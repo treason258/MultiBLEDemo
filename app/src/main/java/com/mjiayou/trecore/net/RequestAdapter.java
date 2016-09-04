@@ -11,9 +11,16 @@ import com.google.gson.Gson;
 import com.mjiayou.trecore.bean.TCRequest;
 import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.bean.TCSinaStatusesResponse;
+import com.mjiayou.trecore.bean.bundle.TCRequestBundle;
+import com.mjiayou.trecore.bean.bundle.TCRequestBundleBody;
+import com.mjiayou.trecore.bean.bundle.TCRequestBundleHeader;
+import com.mjiayou.trecore.encode.SignatureUtil;
+import com.mjiayou.trecore.helper.Configs;
 import com.mjiayou.trecore.helper.GsonHelper;
+import com.mjiayou.trecore.helper.Params;
 import com.mjiayou.trecore.helper.VolleyHelper;
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.util.DeviceUtil;
+import com.mjiayou.trecore.util.UserUtil;
 
 import java.lang.ref.WeakReference;
 
@@ -157,25 +164,35 @@ public class RequestAdapter {
     /**
      * 获取请求数据
      */
-    private String getRequestBodyString(TCRequest request) {
+    private String getRequestString(TCRequest request) {
+        String requestId = DeviceUtil.getUUID();
+        String tokenId = UserUtil.getToken();
+        String appVersion = String.valueOf(Configs.get().getVersionCode());
+        String signature = SignatureUtil.getSignature(requestId);
+
+        request.setRequestId(requestId);
+        request.setTokenId(tokenId);
+        request.setAppVersion(appVersion);
+        request.setSignature(signature);
+
         return mGson.toJson(request);
     }
 
-//    /**
-//     * 获取请求数据
-//     */
-//    private String getRequestBundleString(TCRequestBundleBody requestBody) {
-//        String requestId = DeviceUtil.getUUID();
-//        String tokenId = UserUtil.getToken();
-//        String appVersion = String.valueOf(AppUtil.getVersionCode(TCApp.get()));
-//        String signature = SignatureUtil.getSignature(requestId);
-//
-//        TCRequestBundle request = new TCRequestBundle();
-//        request.setHeader(new TCRequestBundleHeader(requestId, tokenId, appVersion, signature));
-//        request.setBody(requestBody);
-//
-//        return mGson.toJson(request);
-//    }
+    /**
+     * 获取请求数据
+     */
+    private String getRequestBundleString(TCRequestBundleBody requestBody) {
+        String requestId = DeviceUtil.getUUID();
+        String tokenId = UserUtil.getToken();
+        String appVersion = String.valueOf(Configs.get().getVersionCode());
+        String signature = SignatureUtil.getSignature(requestId);
+
+        TCRequestBundle request = new TCRequestBundle();
+        request.setHeader(new TCRequestBundleHeader(requestId, tokenId, appVersion, signature));
+        request.setBody(requestBody);
+
+        return mGson.toJson(request);
+    }
 
     /**
      * 取消所有请求
@@ -189,9 +206,10 @@ public class RequestAdapter {
     /**
      * 0-1.BASE
      */
-    public void base1(String base) {
+    public void base1(String param1, String param2) {
         RequestEntity requestEntity = new RequestEntity(getUrl("base"));
-        requestEntity.addParam("base", base);
+        requestEntity.addParam("param1", param1);
+        requestEntity.addParam("param2", param2);
         mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
     }
 
@@ -200,7 +218,8 @@ public class RequestAdapter {
      */
     public void base2(TCRequest request) {
         RequestEntity requestEntity = new RequestEntity(getUrl("base"));
-        requestEntity.addParam("base", getRequestBodyString(request));
+        requestEntity.addParam("param1", request.getParam1());
+        requestEntity.addParam("param2", request.getParam2());
         mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
     }
 
@@ -209,7 +228,25 @@ public class RequestAdapter {
      */
     public void base3(TCRequest request) {
         RequestEntity requestEntity = new RequestEntity(getUrl("base"));
-        requestEntity.setRequestBody(getRequestBodyString(request));
+        requestEntity.addParam(Params.KEY_PCONTENT, getRequestString(request));
+        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
+    }
+
+    /**
+     * 0-4.BASE
+     */
+    public void base4(TCRequestBundleBody requestBundleBody) {
+        RequestEntity requestEntity = new RequestEntity(getUrl("base"));
+        requestEntity.addParam(Params.KEY_PCONTENT, getRequestBundleString(requestBundleBody));
+        mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
+    }
+
+    /**
+     * 0-5.BASE
+     */
+    public void base5(TCRequest request) {
+        RequestEntity requestEntity = new RequestEntity(getUrl("base"));
+        requestEntity.setRequestBody(getRequestString(request));
         mRequestBuilder.buildAndAddRequest(requestEntity, TCResponse.class, BASE);
     }
 

@@ -23,7 +23,7 @@ import com.mjiayou.trecore.util.AssetUtil;
 import com.mjiayou.trecore.util.ClickUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.ThemeUtil;
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.helper.Configs;
 import com.mjiayou.trecoredemo.R;
 import com.umeng.analytics.MobclickAgent;
 

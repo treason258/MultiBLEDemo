@@ -17,36 +17,31 @@ public class TCRequest {
 //    加密之后的Base64是：YAnwrzfEsvwCXfi6OYwqgQ==
 //    红色部分即为Signature的值
 
+    private String param1;
+    private String param2;
+
     private String requestId;
     private String tokenId;
     private String appVersion;
     private String Signature;
 
-    private String num; // 当前页数 0-首页 1-第二页......
-    private String num_no; // 每页显示条数
+    private String page_number; // 当前页数 0-首页 1-第二页......
+    private String page_rows; // 每页显示条数
 
-    public String getNum() {
-        return num;
+    public String getParam1() {
+        return param1;
     }
 
-    public void setNum(String num) {
-        this.num = num;
+    public void setParam1(String param1) {
+        this.param1 = param1;
     }
 
-    public String getNum_no() {
-        return num_no;
+    public String getParam2() {
+        return param2;
     }
 
-    public void setNum_no(String num_no) {
-        this.num_no = num_no;
-    }
-
-    public String getSignature() {
-        return Signature;
-    }
-
-    public void setSignature(String signature) {
-        Signature = signature;
+    public void setParam2(String param2) {
+        this.param2 = param2;
     }
 
     public String getRequestId() {
@@ -71,5 +66,29 @@ public class TCRequest {
 
     public void setAppVersion(String appVersion) {
         this.appVersion = appVersion;
+    }
+
+    public String getSignature() {
+        return Signature;
+    }
+
+    public void setSignature(String signature) {
+        Signature = signature;
+    }
+
+    public String getPage_number() {
+        return page_number;
+    }
+
+    public void setPage_number(String page_number) {
+        this.page_number = page_number;
+    }
+
+    public String getPage_rows() {
+        return page_rows;
+    }
+
+    public void setPage_rows(String page_rows) {
+        this.page_rows = page_rows;
     }
 }

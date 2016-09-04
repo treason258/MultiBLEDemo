@@ -15,7 +15,7 @@ import com.mjiayou.trecore.event.UserLoginStatusEvent;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.Router;
+import com.mjiayou.trecore.helper.Router;
 import com.mjiayou.trecoredemo.R;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 

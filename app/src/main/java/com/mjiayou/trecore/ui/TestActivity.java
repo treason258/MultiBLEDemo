@@ -30,8 +30,8 @@ import com.mjiayou.trecore.test.surfaceview.TestSurfaceViewActivity;
 import com.mjiayou.trecore.test.touchevent.TestTouchActivity;
 import com.mjiayou.trecore.util.MenuUtil;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.Configs;
-import com.mjiayou.trecore.widget.Router;
+import com.mjiayou.trecore.helper.Configs;
+import com.mjiayou.trecore.helper.Router;
 import com.mjiayou.trecore.widget.dialog.DialogHelper;
 import com.mjiayou.trecoredemo.R;
 

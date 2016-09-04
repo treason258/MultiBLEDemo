@@ -14,7 +14,7 @@ import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.helper.Configs;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;

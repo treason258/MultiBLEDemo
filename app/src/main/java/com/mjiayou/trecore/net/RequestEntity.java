@@ -1,8 +1,8 @@
 package com.mjiayou.trecore.net;
 
 import com.android.volley.Request.Method;
-import com.mjiayou.trecore.widget.Configs;
-import com.mjiayou.trecore.widget.Params;
+import com.mjiayou.trecore.helper.Configs;
+import com.mjiayou.trecore.helper.Params;
 
 import org.json.JSONObject;
 
@@ -42,7 +42,7 @@ public class RequestEntity implements Serializable {
         // 公共参数-params
         params.put(Params.KEY_PLATFORM, Params.VALUE_PLATFORM);
         params.put(Params.KEY_TIME, String.valueOf(System.currentTimeMillis()));
-        params.put(Params.KEY_VERSION_CODE, String.valueOf(Configs.getVersionCode()));
+        params.put(Params.KEY_VERSION_CODE, String.valueOf(Configs.get().getVersionCode()));
     }
 
     // operation

@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.HandlerUtil;
-import com.mjiayou.trecore.widget.Router;
+import com.mjiayou.trecore.helper.Router;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;

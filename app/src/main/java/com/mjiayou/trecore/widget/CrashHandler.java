@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.mjiayou.trecore.TCApp;
+import com.mjiayou.trecore.helper.Configs;
 import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.util.AppUtil;
 import com.mjiayou.trecore.util.DateUtil;

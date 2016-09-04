@@ -15,15 +15,14 @@ import com.mjiayou.trecore.bean.entity.TCRect;
 import com.mjiayou.trecore.util.DeviceUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.ViewUtil;
+import com.mjiayou.trecore.helper.Configs;
+import com.mjiayou.trecoredemo.R;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.Optional;
-
-import com.mjiayou.trecore.widget.Configs;
-import com.mjiayou.trecoredemo.R;
 
 /**
  * Created by treason on 16/6/27.
@@ -74,7 +73,7 @@ public class TCAlertMenuDialog extends TCDialog {
 
         // 设置窗口宽高
         if (mViewRoot != null) {
-            ViewUtil.setWidthAndHeight(mViewRoot, Configs.getScreenWidth(WIDTH_RATIO_DEFAULT), WindowManager.LayoutParams.WRAP_CONTENT);
+            ViewUtil.setWidthAndHeight(mViewRoot, Configs.get().getScreenWidth(WIDTH_RATIO_DEFAULT), WindowManager.LayoutParams.WRAP_CONTENT);
         }
 
         try {

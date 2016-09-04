@@ -10,7 +10,6 @@ import com.mjiayou.trecore.util.ExitUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.TextViewUtil;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.Configs;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.onlineconfig.OnlineConfigAgent;

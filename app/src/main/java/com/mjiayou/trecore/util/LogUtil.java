@@ -2,7 +2,7 @@ package com.mjiayou.trecore.util;
 
 import android.util.Log;
 
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.helper.Configs;
 
 import java.util.Stack;
 

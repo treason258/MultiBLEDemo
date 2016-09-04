@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import com.mjiayou.trecore.util.DirectoryUtil;
 import com.mjiayou.trecore.util.FileUtil;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.widget.Configs;
 import com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiskCache;
 import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;

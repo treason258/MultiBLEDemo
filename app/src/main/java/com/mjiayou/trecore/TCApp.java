@@ -35,7 +35,7 @@ import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.helper.VolleyHelper;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.ProcessUtil;
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.helper.Configs;
 
 /**
  * Created by treason on 16/5/14.
@@ -93,7 +93,7 @@ public class TCApp extends Application {
         /**
          * 初始化 配置信息
          */
-        Configs.init(mContext);
+        Configs.get().init(mContext);
 
         /**
          * 初始化 第三方库

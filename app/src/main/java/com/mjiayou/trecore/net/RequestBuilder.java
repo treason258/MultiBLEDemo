@@ -19,7 +19,7 @@ import com.mjiayou.trecore.util.ConvertUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.StreamUtil;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.helper.Configs;
 import com.mjiayou.trecoredemo.R;
 
 import org.apache.http.HttpEntity;

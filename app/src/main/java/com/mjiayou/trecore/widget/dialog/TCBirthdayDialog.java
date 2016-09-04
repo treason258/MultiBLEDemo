@@ -15,6 +15,8 @@ import com.bigkoo.pickerview.view.WheelTime;
 import com.mjiayou.trecore.util.DateUtil;
 import com.mjiayou.trecore.util.UserUtil;
 import com.mjiayou.trecore.util.ViewUtil;
+import com.mjiayou.trecore.helper.Configs;
+import com.mjiayou.trecoredemo.R;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -22,9 +24,6 @@ import java.util.Date;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.Optional;
-
-import com.mjiayou.trecore.widget.Configs;
-import com.mjiayou.trecoredemo.R;
 
 /**
  * Created by treason on 16/7/4.
@@ -83,7 +82,7 @@ public class TCBirthdayDialog extends TCDialog {
 
         // 窗口宽度
         if (mViewRoot != null) {
-            ViewUtil.setWidthAndHeight(mViewRoot, Configs.getScreenWidth(WIDTH_RATIO_FULL), WindowManager.LayoutParams.WRAP_CONTENT);
+            ViewUtil.setWidthAndHeight(mViewRoot, Configs.get().getScreenWidth(WIDTH_RATIO_FULL), WindowManager.LayoutParams.WRAP_CONTENT);
         }
 
         try {

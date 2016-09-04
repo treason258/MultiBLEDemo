@@ -1,4 +1,4 @@
-package com.mjiayou.trecore.widget;
+package com.mjiayou.trecore.helper;
 
 /**
  * Created by treason on 16/5/17.

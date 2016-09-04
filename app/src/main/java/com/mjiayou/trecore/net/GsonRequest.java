@@ -15,7 +15,7 @@ import com.google.gson.JsonSyntaxException;
 import com.mjiayou.trecore.helper.GsonHelper;
 import com.mjiayou.trecore.util.ConvertUtil;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.helper.Configs;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
@@ -32,10 +32,10 @@ public class GsonRequest<T> extends Request<T> {
      */
     public GsonRequest(RequestEntity requestEntity, ErrorListener errorListener, Class<T> clazz, Listener<T> responseListener) {
         super(requestEntity.getMethodCode(), requestEntity.getUrl(), errorListener);
-        mRequestEntity = requestEntity;
-        mClazz = clazz;
-        mResponseListener = responseListener;
-        mGson = GsonHelper.get();
+        this.mRequestEntity = requestEntity;
+        this.mClazz = clazz;
+        this.mResponseListener = responseListener;
+        this.mGson = GsonHelper.get();
     }
 
     @Override

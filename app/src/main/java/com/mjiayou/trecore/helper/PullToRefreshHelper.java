@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.widget.Configs;
 
 /**
  * Created by treason on 16/5/17.

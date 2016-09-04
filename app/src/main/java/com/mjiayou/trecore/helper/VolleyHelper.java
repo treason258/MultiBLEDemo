@@ -6,7 +6,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.widget.Configs;
 
 /**
  * Created by treason on 16/5/14.
@@ -17,7 +16,6 @@ public class VolleyHelper {
 
     private static VolleyHelper mInstance;
     private Context mContext;
-
     private RequestQueue mRequestQueue;
 
     /**
