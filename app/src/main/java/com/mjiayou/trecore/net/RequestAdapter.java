@@ -8,12 +8,12 @@ import android.text.TextUtils;
 
 import com.android.volley.Request.Method;
 import com.google.gson.Gson;
-import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.TCRequest;
 import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.bean.TCSinaStatusesResponse;
 import com.mjiayou.trecore.helper.GsonHelper;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.helper.VolleyHelper;
+import com.mjiayou.trecore.widget.Configs;
 
 import java.lang.ref.WeakReference;
 
@@ -23,36 +23,36 @@ import java.lang.ref.WeakReference;
 public class RequestAdapter {
 
     // 生产服务器
-    public static String SERVER_HOST = "http://api.xxx.com/";
+    public static String SERVER_HOST = "http://api.soccerapp.cn/";
     public static String SERVER_PATH = "hoho/";
 
     static {
-        if (TCConfigs.DEBUG_SERVER) {
-            // 测试服务器 - 阿里云
+        if (Configs.DEBUG_SERVER) {
+            // 测试服务器
             SERVER_HOST = "http://123.57.223.153:8111/";
             SERVER_PATH = "";
         }
     }
 
     // 接口CATEGORY
-    public static final int BASE = 0;
+    public static final int BASE = 258;
     public static final int SINA_STATUSES = 259;
 
     private final Context mContext;
+    private ResponseHandler mResponseHandler;
     private RequestBuilder mRequestBuilder;
-    private DataHandler mDataHandler;
     private Gson mGson;
 
     /**
      * 构造函数
      */
-    public RequestAdapter(Object tagObject, Context context, DataResponse dataResponse) {
+    public RequestAdapter(Context context, DataResponse dataResponse) {
         this.mContext = context;
-        Looper looper = Looper.myLooper();
-        if (looper != null && mDataHandler == null) {
-            this.mDataHandler = new DataHandler(dataResponse);
+
+        if (mResponseHandler == null && Looper.myLooper() != null) {
+            this.mResponseHandler = new ResponseHandler(dataResponse);
         }
-        this.mRequestBuilder = new RequestBuilder(tagObject, TCApp.get().getRequestQueue(), mDataHandler);
+        this.mRequestBuilder = new RequestBuilder(context, VolleyHelper.get().getRequestQueue(), mResponseHandler);
         this.mGson = GsonHelper.get();
     }
 
@@ -106,10 +106,10 @@ public class RequestAdapter {
     /**
      * 回调
      */
-    static class DataHandler extends Handler {
+    static class ResponseHandler extends Handler {
         private final WeakReference<DataResponse> mWeakReference;
 
-        public DataHandler(DataResponse dataResponse) {
+        public ResponseHandler(DataResponse dataResponse) {
             mWeakReference = new WeakReference<>(dataResponse);
         }
 
@@ -139,6 +139,7 @@ public class RequestAdapter {
 //        // GET公共参数
 //        builder.append("?" + Params.KEY_PLATFORM + "=" + Params.VALUE_PLATFORM);
 //        builder.append("&" + Params.KEY_TIME + "=" + String.valueOf(System.currentTimeMillis()));
+//        builder.append("&" + Params.KEY_VERSION_CODE + "=" + String.valueOf(Configs.getVersionCode()));
         return builder.toString();
     }
 
@@ -223,5 +224,5 @@ public class RequestAdapter {
         mRequestBuilder.buildAndAddRequest(requestEntity, TCSinaStatusesResponse.class, SINA_STATUSES);
     }
 
-    // ******************************** custom ********************************
+    // ******************************** project ********************************
 }

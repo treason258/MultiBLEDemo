@@ -71,7 +71,7 @@ public class CrashHandler {
                 // 处理未捕获异常
                 if (handleException(throwable)) { // 用户处理异常
                     try {
-                        Thread.sleep(TCConfigs.DELAY_CRASH_FINISH);
+                        Thread.sleep(Configs.DELAY_CRASH_FINISH);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

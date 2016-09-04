@@ -15,51 +15,67 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.helper.GsonHelper;
+import com.mjiayou.trecore.util.ConvertUtil;
 import com.mjiayou.trecore.util.LogUtil;
+import com.mjiayou.trecore.util.StreamUtil;
 import com.mjiayou.trecore.util.ToastUtil;
+import com.mjiayou.trecore.widget.Configs;
 import com.mjiayou.trecoredemo.R;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+
+import java.io.File;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.Map;
 
 public class RequestBuilder {
 
-    public static final String TAG = "net_volley";
-
-    private RequestQueue mRequestQueue;
-    private Handler mHandler;
     private Object mTagObject;
+    private RequestQueue mRequestQueue;
+    private Handler mResponseHandler;
     private Gson mGson;
 
     /**
      * 构造函数
      */
-    public RequestBuilder(Object tagObject, RequestQueue queue, Handler handler) {
-        this.mRequestQueue = queue;
-        this.mHandler = handler;
+    public RequestBuilder(Object tagObject, RequestQueue requestQueue, Handler responseHandler) {
         this.mTagObject = tagObject;
+        this.mRequestQueue = requestQueue;
+        this.mResponseHandler = responseHandler;
         this.mGson = GsonHelper.get();
     }
 
     /**
      * Volley请求
      */
-    public <T> void buildAndAddRequest(RequestEntity requestEntity, Class<T> clazz, final int category, Listener<T> listener) {
-        LogUtil.i(TAG, "request_url -> " + requestEntity.getUrl());
-        LogUtil.i(TAG, "request_method -> " + requestEntity.getMethodCode());
-        LogUtil.i(TAG, "request_headers -> " + requestEntity.getHeaders());
-        LogUtil.i(TAG, "request_body -> " + requestEntity.getRequestBody());
-        LogUtil.i(TAG, "request_params -> " + requestEntity.getParams());
+    public <T> void buildAndAddRequest(RequestEntity requestEntity, Class<T> clazz, final int category, Listener<T> responseListener) {
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_URL + " -> " + requestEntity.getUrl());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_METHOD + " -> " + requestEntity.getMethodCode());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_HEADERS + " -> " + requestEntity.getHeaders());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_BODY + " -> " + requestEntity.getRequestBody());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_PARAMS + " -> " + requestEntity.getParams());
 
-        if (listener == null) {
-            listener = new Listener<T>() {
+        if (responseListener == null) {
+            responseListener = new Listener<T>() {
                 @Override
                 public void onResponse(T response) {
-                    mHandler.sendMessage(Message.obtain(null, category, response));
+                    mResponseHandler.sendMessage(Message.obtain(null, category, response));
                 }
             };
         }
-        GsonRequest<T> request = new GsonRequest<>(requestEntity, clazz, listener, new ErrorListenerAdapter(category));
+        GsonRequest<T> request = new GsonRequest<>(requestEntity, new TCErrorListener(category), clazz, responseListener);
         request.setTag(mTagObject);
         request.setShouldCache(true);
-        request.setRetryPolicy(new DefaultRetryPolicy(100 * 1000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)); // 设置超时时间、重连次数
+        request.setRetryPolicy(new DefaultRetryPolicy(Configs.DEFAULT_TIMEOUT_MS, Configs.DEFAULT_MAX_RETRIES, Configs.DEFAULT_BACKOFF_MULT)); // 设置超时时间、重连次数
         mRequestQueue.add(request);
     }
 
@@ -67,59 +83,62 @@ public class RequestBuilder {
         buildAndAddRequest(requestEntity, clazz, category, null);
     }
 
-//    /**
-//     * Http请求
-//     */
-//    public <T> void httpRequestByPostFile(final RequestEntity requestEntity, final Class<T> clazz, final int category, final Listener<T> listener) {
-//        LogUtil.i(TAG, "request_url -> " + requestEntity.getUrl());
-//        LogUtil.i(TAG, "request_method -> " + requestEntity.getMethodCode());
-//        LogUtil.i(TAG, "request_headers -> " + requestEntity.getHeaders());
-//        LogUtil.i(TAG, "request_body -> " + requestEntity.getRequestBody());
-//        LogUtil.i(TAG, "request_params -> " + requestEntity.getParams());
-//
-//        new Thread() {
-//            @Override
-//            public void run() {
-//                HttpClient httpClient = new DefaultHttpClient();
-//                HttpPost httpPost = new HttpPost(requestEntity.getUrl());
-//                MultipartEntity multipartEntity = new MultipartEntity();
-//
-//                try {
-//                    for (Map.Entry<String, String> entry : requestEntity.getParams().entrySet()) {
-//                        if (entry.getValue() != null) {
-//                            multipartEntity.addPart(entry.getKey(), new StringBody(entry.getValue(), Charset.forName(HTTP.UTF_8)));
-//                        }
-//                    }
-//                    for (Map.Entry<String, File> entry : requestEntity.getFiles().entrySet()) {
-//                        if (entry.getValue() != null) {
-//                            multipartEntity.addPart(entry.getKey(), new FileBody(entry.getValue()));
-//                        }
-//                    }
-//
-//                    httpPost.setEntity(multipartEntity);
-//                    HttpResponse response = httpClient.execute(httpPost);
-//                    HttpEntity httpEntity = response.getEntity();
-//                    if (httpEntity != null) {
-//                        InputStream inputStream = null;
-//                        String responseString;
-//                        try {
-//                            inputStream = httpEntity.getContent();
-//                            responseString = ConvertUtil.convertStreamToString(inputStream);
-//
-//                            LogUtil.i(TAG, "response_data -> " + responseString);
-//                            listener.onResponse(mGson.fromJson(responseString, clazz));
-//                        } catch (Exception e) {
-//                            LogUtil.printStackTrace(e);
-//                        } finally {
-//                            StreamUtil.closeQuietly(inputStream);
-//                        }
-//                    }
-//                } catch (Exception e) {
-//                    LogUtil.printStackTrace(e);
-//                }
-//            }
-//        }.start();
-//    }
+    /**
+     * Http请求
+     */
+    public <T> void buildAndAddRequestByHttpClient(final RequestEntity requestEntity, final Class<T> clazz, final int category, final Listener<T> responseListener) {
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_URL + " -> " + requestEntity.getUrl());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_METHOD + " -> " + requestEntity.getMethodCode());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_HEADERS + " -> " + requestEntity.getHeaders());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_BODY + " -> " + requestEntity.getRequestBody());
+        LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_REQUEST_PARAMS + " -> " + requestEntity.getParams());
+
+        new Thread() {
+            @Override
+            public void run() {
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost httpPost = new HttpPost(requestEntity.getUrl());
+                MultipartEntity multipartEntity = new MultipartEntity();
+
+                try {
+                    for (Map.Entry<String, String> entry : requestEntity.getParams().entrySet()) {
+                        if (entry.getValue() != null) {
+                            multipartEntity.addPart(entry.getKey(), new StringBody(entry.getValue(), Charset.forName(HTTP.UTF_8)));
+                        }
+                    }
+                    for (Map.Entry<String, File> entry : requestEntity.getFiles().entrySet()) {
+                        if (entry.getValue() != null) {
+                            multipartEntity.addPart(entry.getKey(), new FileBody(entry.getValue()));
+                        }
+                    }
+
+                    httpPost.setEntity(multipartEntity);
+                    HttpResponse response = httpClient.execute(httpPost);
+                    HttpEntity httpEntity = response.getEntity();
+                    if (httpEntity != null) {
+                        InputStream inputStream = null;
+                        String responseString;
+                        try {
+                            inputStream = httpEntity.getContent();
+                            responseString = ConvertUtil.convertStreamToString(inputStream);
+
+                            T result = mGson.fromJson(responseString, clazz);
+                            LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_RESPONSE + " -- ");
+                            LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_RESPONSE_STRING + " -> " + responseString);
+                            LogUtil.i(Configs.TAG_VOLLEY, Configs.TAG_RESPONSE_OBJECT + " -> " + mGson.toJson(result));
+                            responseListener.onResponse(result);
+                        } catch (Exception e) {
+                            LogUtil.printStackTrace(e);
+                        } finally {
+                            StreamUtil.closeQuietly(inputStream);
+                        }
+                    }
+                } catch (Exception e) {
+                    LogUtil.printStackTrace(e);
+                }
+            }
+        }.start();
+    }
 
     /**
      * 取消所有请求
@@ -131,16 +150,16 @@ public class RequestBuilder {
     /**
      * 异常处理
      */
-    private class ErrorListenerAdapter implements ErrorListener {
+    private class TCErrorListener implements ErrorListener {
         private final int mCategory;
 
-        public ErrorListenerAdapter(int category) {
+        public TCErrorListener(int category) {
             mCategory = category;
         }
 
         @Override
         public void onErrorResponse(VolleyError error) {
-            mHandler.sendMessage(Message.obtain(null, mCategory, null));
+            mResponseHandler.sendMessage(Message.obtain(null, mCategory, null));
             if (error instanceof NoConnectionError) {
                 ToastUtil.show(TCApp.get(), TCApp.get().getString(R.string.tc_error_no_connection));
             } else if (error instanceof TimeoutError) {

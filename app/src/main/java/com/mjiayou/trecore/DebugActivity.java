@@ -15,7 +15,7 @@ import com.mjiayou.trecore.util.MenuUtil;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecore.widget.Router;
 import com.mjiayou.trecore.widget.dialog.DialogHelper;
 import com.mjiayou.trecore.widget.dialog.TCAlertDialog;
 import com.mjiayou.trecoredemo.R;
@@ -131,7 +131,7 @@ public class DebugActivity extends TCActivity {
                                 ToastUtil.show(mContext, "退出登录成功");
 
                                 // 打开登录页面
-                                TCRouter.openTestUserLoginActivity(mContext);
+                                Router.openTestUserLoginActivity(mContext);
                                 finish();
                             }
 

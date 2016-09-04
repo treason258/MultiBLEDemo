@@ -10,7 +10,7 @@ import com.mjiayou.trecore.util.ExitUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.TextViewUtil;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.onlineconfig.OnlineConfigAgent;
@@ -79,21 +79,21 @@ public class UmengHelper {
         // 自定义参数、自动更新
 
         // 友盟调试模式
-        MobclickAgent.setDebugMode(TCConfigs.DEBUG_UMENG);
+        MobclickAgent.setDebugMode(Configs.DEBUG_UMENG);
         // 友盟异常统计
         MobclickAgent.setCatchUncaughtExceptions(true);
 
         // 社会化分享调试模式
-        com.umeng.socialize.utils.Log.LOG = TCConfigs.DEBUG_UMENG;
+        com.umeng.socialize.utils.Log.LOG = Configs.DEBUG_UMENG;
 
         // 在线参数调试模式
-        OnlineConfigAgent.getInstance().setDebugMode(TCConfigs.DEBUG_UMENG);
+        OnlineConfigAgent.getInstance().setDebugMode(Configs.DEBUG_UMENG);
         // 自动更新调试模式
-        UpdateConfig.setDebug(TCConfigs.DEBUG_UMENG);
+        UpdateConfig.setDebug(Configs.DEBUG_UMENG);
         // 自动更新集成检测
-        UmengUpdateAgent.setUpdateCheckConfig(TCConfigs.DEBUG_UMENG);
+        UmengUpdateAgent.setUpdateCheckConfig(Configs.DEBUG_UMENG);
         // 用户反馈调试模式
-        com.umeng.fb.util.Log.LOG = TCConfigs.DEBUG_UMENG;
+        com.umeng.fb.util.Log.LOG = Configs.DEBUG_UMENG;
 
 
         // 友盟统计，统计APP打开次数
@@ -336,18 +336,18 @@ public class UmengHelper {
         // 新浪
         getUMSocialShare().getConfig().setSsoHandler(new SinaSsoHandler());
         // QQ
-        UMQQSsoHandler umqqSsoHandler = new UMQQSsoHandler(activity, TCConfigs.QQ_APP_ID, TCConfigs.QQ_APP_KEY);
+        UMQQSsoHandler umqqSsoHandler = new UMQQSsoHandler(activity, Configs.QQ_APP_ID, Configs.QQ_APP_KEY);
         umqqSsoHandler.addToSocialSDK();
         // QQ空间
-        QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(activity, TCConfigs.QQ_APP_ID, TCConfigs.QQ_APP_KEY);
+        QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(activity, Configs.QQ_APP_ID, Configs.QQ_APP_KEY);
         qZoneSsoHandler.addToSocialSDK();
         // 腾讯微博
         getUMSocialShare().getConfig().setSsoHandler(new TencentWBSsoHandler());
         // 微信
-        UMWXHandler wxHandler = new UMWXHandler(activity, TCConfigs.WEIXIN_APP_ID, TCConfigs.WEIXIN_APP_SECRET);
+        UMWXHandler wxHandler = new UMWXHandler(activity, Configs.WEIXIN_APP_ID, Configs.WEIXIN_APP_SECRET);
         wxHandler.addToSocialSDK();
         // 朋友圈
-        UMWXHandler wxCircleHandler = new UMWXHandler(activity, TCConfigs.WEIXIN_APP_ID, TCConfigs.WEIXIN_APP_SECRET);
+        UMWXHandler wxCircleHandler = new UMWXHandler(activity, Configs.WEIXIN_APP_ID, Configs.WEIXIN_APP_SECRET);
         wxCircleHandler.setToCircle(true);
         wxCircleHandler.addToSocialSDK();
 

@@ -14,7 +14,7 @@ import com.mjiayou.trecore.bean.TCResponse;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
@@ -122,12 +122,12 @@ public class TestUserRegisterActivity extends TCActivity {
         }
 
         // 设置60s后重新获取
-        countDownTimer = new CountDownTimer(TCConfigs.TIME_GET_VERIFY_CODE, TCConfigs.TIME_GET_VERIFY_CODE_INTERVAL) {
+        countDownTimer = new CountDownTimer(Configs.TIME_GET_VERIFY_CODE, Configs.TIME_GET_VERIFY_CODE_INTERVAL) {
             @Override
             public void onTick(long millisUntilFinished) {
                 mTvGetVerifyCode.setClickable(false);
                 mTvGetVerifyCode.setEnabled(false);
-                mTvGetVerifyCode.setText(millisUntilFinished / TCConfigs.TIME_GET_VERIFY_CODE_INTERVAL + "秒后获取");
+                mTvGetVerifyCode.setText(millisUntilFinished / Configs.TIME_GET_VERIFY_CODE_INTERVAL + "秒后获取");
             }
 
             @Override

@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.Optional;
 
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.mjiayou.trecoredemo.R;
 
 /**
@@ -74,7 +74,7 @@ public class TCAlertMenuDialog extends TCDialog {
 
         // 设置窗口宽高
         if (mViewRoot != null) {
-            ViewUtil.setWidthAndHeight(mViewRoot, TCConfigs.getScreenWidth(WIDTH_RATIO_DEFAULT), WindowManager.LayoutParams.WRAP_CONTENT);
+            ViewUtil.setWidthAndHeight(mViewRoot, Configs.getScreenWidth(WIDTH_RATIO_DEFAULT), WindowManager.LayoutParams.WRAP_CONTENT);
         }
 
         try {

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.mjiayou.trecore.util.DirectoryUtil;
 import com.mjiayou.trecore.util.FileUtil;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.nostra13.universalimageloader.cache.disc.impl.LimitedAgeDiskCache;
 import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
@@ -69,20 +69,20 @@ public class ImageLoaderHelper {
 
         ImageLoaderConfiguration.Builder builder = new ImageLoaderConfiguration.Builder(context);
         // 设置调试状态
-        if (TCConfigs.DEBUG_IMAGE_LOADER) {
+        if (Configs.DEBUG_IMAGE_LOADER) {
             builder.writeDebugLogs();
         }
         // 内存缓存配置
         builder.memoryCache(new WeakMemoryCache());
-        builder.memoryCacheExtraOptions(TCConfigs.IMAGELOADER_MAX_WIDTH, TCConfigs.IMAGELOADER_MAX_HEIGHT);
+        builder.memoryCacheExtraOptions(Configs.IMAGELOADER_MAX_WIDTH, Configs.IMAGELOADER_MAX_HEIGHT);
         // 硬盘缓存配置
         try {
-            builder.diskCache(new LruDiskCache(cacheDir, null, getFileNameGenerator(), TCConfigs.IMAGELOADER_CACHE_MAX_SIZE, Integer.MAX_VALUE)); // Integer.MAX_VALUE表示不限文件数量，因为暂时不理解数值意义
+            builder.diskCache(new LruDiskCache(cacheDir, null, getFileNameGenerator(), Configs.IMAGELOADER_CACHE_MAX_SIZE, Integer.MAX_VALUE)); // Integer.MAX_VALUE表示不限文件数量，因为暂时不理解数值意义
         } catch (IOException e) {
             e.printStackTrace();
             builder.diskCache(new LimitedAgeDiskCache(cacheDir, null, getFileNameGenerator(), Integer.MAX_VALUE)); // Integer.MAX_VALUE
         }
-        builder.diskCacheExtraOptions(TCConfigs.IMAGELOADER_MAX_WIDTH, TCConfigs.IMAGELOADER_MAX_HEIGHT, null);
+        builder.diskCacheExtraOptions(Configs.IMAGELOADER_MAX_WIDTH, Configs.IMAGELOADER_MAX_HEIGHT, null);
         // 线程配置
         builder.threadPoolSize(3); // 线程池内加载数量
         builder.threadPriority(Thread.NORM_PRIORITY - 2); // 线程优先级

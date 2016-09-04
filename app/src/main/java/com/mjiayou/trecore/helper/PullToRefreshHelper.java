@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.mjiayou.trecore.util.LogUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 
 /**
  * Created by treason on 16/5/17.
@@ -19,6 +19,6 @@ public class PullToRefreshHelper {
     public static void init(Context context) {
         LogUtil.i("初始化数据 -> " + TAG);
 
-        PullToRefreshBase.DEBUG = TCConfigs.DEBUG_PULL_TO_REFRESH;
+        PullToRefreshBase.DEBUG = Configs.DEBUG_PULL_TO_REFRESH;
     }
 }

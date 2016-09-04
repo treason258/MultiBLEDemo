@@ -23,7 +23,7 @@ import com.mjiayou.trecore.util.AssetUtil;
 import com.mjiayou.trecore.util.ClickUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.ThemeUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.mjiayou.trecoredemo.R;
 import com.umeng.analytics.MobclickAgent;
 
@@ -109,7 +109,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onResume");
         }
         super.onResume();
-        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
+        if (Configs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onPageStart("MainScreen");
         }
     }
@@ -120,7 +120,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onPause");
         }
         super.onPause();
-        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
+        if (Configs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onPageEnd("MainScreen");
         }
     }
@@ -225,7 +225,7 @@ public class TCFragment extends Fragment implements RequestAdapter.DataRequest, 
      */
     public RequestAdapter getRequestAdapter() {
         if (mRequestAdapter == null) {
-            mRequestAdapter = new RequestAdapter(mContext, mContext, this);
+            mRequestAdapter = new RequestAdapter(mContext, this);
         }
         return mRequestAdapter;
     }

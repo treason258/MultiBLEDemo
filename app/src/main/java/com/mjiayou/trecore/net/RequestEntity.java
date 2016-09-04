@@ -1,7 +1,8 @@
 package com.mjiayou.trecore.net;
 
 import com.android.volley.Request.Method;
-import com.mjiayou.trecore.widget.TCParams;
+import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.widget.Params;
 
 import org.json.JSONObject;
 
@@ -14,112 +15,109 @@ public class RequestEntity implements Serializable {
 
     private static final long serialVersionUID = -2329339308310833689L;
 
-    private int mMethodCode;
-    private String mUrl = "";
-    private String mRequestBody = "";
-    private JSONObject mJsonObject = new JSONObject();
-    private Map<String, String> mHeaders = new HashMap<>();
-    private Map<String, String> mParams = new HashMap<>();
-    private Map<String, File> mFiles = new HashMap<>();
+    private int methodCode;
+    private String url = "";
+    private String requestBody = "";
+    private Map<String, String> headers = new HashMap<>();
+    private Map<String, String> params = new HashMap<>();
+    private Map<String, File> files = new HashMap<>();
+    private JSONObject jsonObject = new JSONObject();
 
     /**
      * 构造函数
      */
     public RequestEntity(String url) {
 
-        this.mMethodCode = Method.POST;
-        this.mUrl = url;
+        this.methodCode = Method.POST;
+        this.url = url;
 
         // 公共参数-header
-        mHeaders.put("Accept-Encoding", "gzip");
-        mHeaders.put("Accept", "application/json");
-        mHeaders.put("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"); // application/json; charset=UTF-8
-        mHeaders.put(TCParams.KEY_PLATFORM, TCParams.VALUE_PLATFORM);
+        headers.put("Accept-Encoding", "gzip");
+        headers.put("Accept", "application/json");
+        headers.put("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"); // application/json; charset=UTF-8
+//        headers.put("Content-Type", "application/json; charset=UTF-8");
+//        headers.put("Content-Type", "text/html; charset=UTF-8");
+        headers.put(Params.KEY_PLATFORM, Params.VALUE_PLATFORM);
 
         // 公共参数-params
-        mParams.put(TCParams.KEY_TIME, String.valueOf(System.currentTimeMillis()));
+        params.put(Params.KEY_PLATFORM, Params.VALUE_PLATFORM);
+        params.put(Params.KEY_TIME, String.valueOf(System.currentTimeMillis()));
+        params.put(Params.KEY_VERSION_CODE, String.valueOf(Configs.getVersionCode()));
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    // operation
+
+    public void addHeader(String key, String value) {
+        headers.put(key, value);
+    }
+
+    public void addParam(String key, String value) {
+        params.put(key, value);
+    }
+
+    public void addFile(String key, File file) {
+        files.put(key, file);
+    }
+
+    public void addParams(Map<String, String> params) {
+        this.params.putAll(params);
     }
 
     // getter and setter
 
     public int getMethodCode() {
-        return mMethodCode;
+        return methodCode;
     }
 
-    public void setMethodCode(int mMethodCode) {
-        this.mMethodCode = mMethodCode;
+    public void setMethodCode(int methodCode) {
+        this.methodCode = methodCode;
     }
 
     public String getUrl() {
-        return mUrl;
+        return url;
     }
 
-    public void setUrl(String mUrl) {
-        this.mUrl = mUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getRequestBody() {
-        return mRequestBody;
+        return requestBody;
     }
 
-    public void setRequestBody(String mRequestBody) {
-        this.mRequestBody = mRequestBody;
+    public void setRequestBody(String requestBody) {
+        this.requestBody = requestBody;
     }
 
     public JSONObject getJsonObject() {
-        return mJsonObject;
+        return jsonObject;
     }
 
-    public void setJsonObject(JSONObject mJsonObject) {
-        this.mJsonObject = mJsonObject;
+    public void setJsonObject(JSONObject jsonObject) {
+        this.jsonObject = jsonObject;
     }
 
     public Map<String, String> getHeaders() {
-        return mHeaders;
+        return headers;
     }
 
-    public void setHeaders(Map<String, String> mHeaders) {
-        this.mHeaders = mHeaders;
+    public void setHeaders(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     public Map<String, String> getParams() {
-        return mParams;
+        return params;
     }
 
-    public void setParams(Map<String, String> mParams) {
-        this.mParams = mParams;
+    public void setParams(Map<String, String> params) {
+        this.params = params;
     }
 
     public Map<String, File> getFiles() {
-        return mFiles;
+        return files;
     }
 
-    public void setFiles(Map<String, File> mFiles) {
-        this.mFiles = mFiles;
+    public void setFiles(Map<String, File> files) {
+        this.files = files;
     }
-
-
-    // operation
-
-    public void addHeader(String key, String value) {
-        mHeaders.put(key, value);
-    }
-
-    public void addParam(String key, String value) {
-        mParams.put(key, value);
-    }
-
-    public void addFile(String name, File file) {
-        mFiles.put(name, file);
-    }
-
-    public void addParams(Map<String, String> params) {
-        mParams.putAll(params);
-    }
-
-
 }

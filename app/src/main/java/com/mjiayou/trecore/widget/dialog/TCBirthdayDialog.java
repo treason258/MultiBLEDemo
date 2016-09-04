@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.Optional;
 
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.mjiayou.trecoredemo.R;
 
 /**
@@ -83,7 +83,7 @@ public class TCBirthdayDialog extends TCDialog {
 
         // 窗口宽度
         if (mViewRoot != null) {
-            ViewUtil.setWidthAndHeight(mViewRoot, TCConfigs.getScreenWidth(WIDTH_RATIO_FULL), WindowManager.LayoutParams.WRAP_CONTENT);
+            ViewUtil.setWidthAndHeight(mViewRoot, Configs.getScreenWidth(WIDTH_RATIO_FULL), WindowManager.LayoutParams.WRAP_CONTENT);
         }
 
         try {

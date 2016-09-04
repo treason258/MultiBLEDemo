@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.mjiayou.trecore.TCActivity;
 import com.mjiayou.trecore.util.HandlerUtil;
-import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecore.widget.Router;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
@@ -33,7 +33,7 @@ public class TestSplashActivity extends TCActivity {
         HandlerUtil.getHandler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                TCRouter.openTestMainActivity(mContext);
+                Router.openTestMainActivity(mContext);
                 finish();
             }
         }, 1000);

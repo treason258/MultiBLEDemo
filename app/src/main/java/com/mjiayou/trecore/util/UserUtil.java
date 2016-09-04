@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.mjiayou.trecore.TCApp;
 import com.mjiayou.trecore.bean.entity.TCUser;
 import com.mjiayou.trecore.event.UserLoginStatusEvent;
-import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecore.widget.Router;
 
 import de.greenrobot.event.EventBus;
 
@@ -76,7 +76,7 @@ public class UserUtil {
         boolean isLogin = checkLoginStatus(context);
         if (!isLogin) {
             isNeedLogin = true;
-            TCRouter.openTestUserLoginActivity(context);
+            Router.openTestUserLoginActivity(context);
         }
 
         return isNeedLogin;

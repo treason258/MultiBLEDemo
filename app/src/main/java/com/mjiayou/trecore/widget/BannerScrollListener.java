@@ -36,16 +36,16 @@ public class BannerScrollListener extends RecyclerView.OnScrollListener {
                 } else {
                     rate = 1;
                 }
-                v.setScaleY(1 - rate * (1 - TCConfigs.BANNER_SCALE));
-                v.setScaleX(1 - rate * (1 - TCConfigs.BANNER_SCALE));
+                v.setScaleY(1 - rate * (1 - Configs.BANNER_SCALE));
+                v.setScaleX(1 - rate * (1 - Configs.BANNER_SCALE));
 
             } else {
                 //往右 从 padding 到 recyclerView.getWidth()-padding 的过程中，由大到小
                 if (v.getLeft() <= recyclerView.getWidth() - padding) {
                     rate = (recyclerView.getWidth() - padding - v.getLeft()) * 1f / v.getWidth();
                 }
-                v.setScaleY(TCConfigs.BANNER_SCALE + rate * (1 - TCConfigs.BANNER_SCALE));
-                v.setScaleX(TCConfigs.BANNER_SCALE + rate * (1 - TCConfigs.BANNER_SCALE));
+                v.setScaleY(Configs.BANNER_SCALE + rate * (1 - Configs.BANNER_SCALE));
+                v.setScaleX(Configs.BANNER_SCALE + rate * (1 - Configs.BANNER_SCALE));
             }
         }
     }

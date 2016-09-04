@@ -30,8 +30,8 @@ import com.mjiayou.trecore.test.surfaceview.TestSurfaceViewActivity;
 import com.mjiayou.trecore.test.touchevent.TestTouchActivity;
 import com.mjiayou.trecore.util.MenuUtil;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
-import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.widget.Router;
 import com.mjiayou.trecore.widget.dialog.DialogHelper;
 import com.mjiayou.trecoredemo.R;
 
@@ -162,10 +162,10 @@ public class TestActivity extends TCActivity {
             @Override
             public void onClick(View view) {
                 TCUMShare tcumShare = new TCUMShare();
-                tcumShare.setTitle(TCConfigs.DEFAULT_SHARE_TARGET_TITLE);
-                tcumShare.setDesc(TCConfigs.DEFAULT_SHARE_TARGET_CONTENT);
-                tcumShare.setImgUrl(TCConfigs.DEFAULT_SHARE_IMAGE_URL);
-                tcumShare.setTargetUrl(TCConfigs.DEFAULT_SHARE_TARGET_URL);
+                tcumShare.setTitle(Configs.DEFAULT_SHARE_TARGET_TITLE);
+                tcumShare.setDesc(Configs.DEFAULT_SHARE_TARGET_CONTENT);
+                tcumShare.setImgUrl(Configs.DEFAULT_SHARE_IMAGE_URL);
+                tcumShare.setTargetUrl(Configs.DEFAULT_SHARE_TARGET_URL);
                 UmengHelper.openShare(mActivity, null, UmengHelper.SHARE_FOR_NORMAL, tcumShare);
             }
         }));
@@ -183,25 +183,25 @@ public class TestActivity extends TCActivity {
         tcMenus.add(new TCMenu("视频测试", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TCRouter.openTestVideoActivity(mContext);
+                Router.openTestVideoActivity(mContext);
             }
         }));
         tcMenus.add(new TCMenu("Test Main", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TCRouter.openTestSplashActivity(mContext);
+                Router.openTestSplashActivity(mContext);
             }
         }));
         tcMenus.add(new TCMenu("Test Weibo", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TCRouter.openTestWeiboActivity(mContext);
+                Router.openTestWeiboActivity(mContext);
             }
         }));
         tcMenus.add(new TCMenu("Test API", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RequestAdapter requestAdapter = new RequestAdapter(mContext, mContext, new RequestAdapter.DataResponse() {
+                RequestAdapter requestAdapter = new RequestAdapter(mContext, new RequestAdapter.DataResponse() {
                     @Override
                     public void callback(Message msg) {
                         switch (msg.what) {

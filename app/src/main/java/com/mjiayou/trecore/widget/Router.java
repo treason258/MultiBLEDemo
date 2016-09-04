@@ -14,9 +14,9 @@ import com.mjiayou.trecore.util.ClickUtil;
 /**
  * Created by treason on 16/5/14.
  */
-public class TCRouter {
+public class Router {
 
-    protected static final String TAG = "TCRouter";
+    protected static final String TAG = "Router";
 
     protected static Intent mIntent;
 
@@ -91,4 +91,6 @@ public class TCRouter {
         mIntent = new Intent(context, TestVideoActivity.class);
         context.startActivity(mIntent);
     }
+
+    // ******************************** project ********************************
 }

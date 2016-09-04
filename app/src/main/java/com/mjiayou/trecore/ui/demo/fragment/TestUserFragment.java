@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.mjiayou.trecore.TCFragment;
 import com.mjiayou.trecore.util.ToastUtil;
-import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecore.widget.Router;
 import com.mjiayou.trecoredemo.R;
 
 import butterknife.ButterKnife;
@@ -28,7 +28,7 @@ public class TestUserFragment extends TCFragment {
     void onClicks(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
-                TCRouter.openTestUserLoginActivity(mContext);
+                Router.openTestUserLoginActivity(mContext);
                 break;
             case R.id.btn_logout:
                 ToastUtil.show(mContext, "注销");

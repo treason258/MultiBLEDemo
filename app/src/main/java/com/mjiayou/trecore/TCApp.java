@@ -27,7 +27,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.mjiayou.trecore.helper.GsonHelper;
 import com.mjiayou.trecore.helper.ImageLoaderHelper;
 import com.mjiayou.trecore.helper.PullToRefreshHelper;
@@ -36,14 +35,14 @@ import com.mjiayou.trecore.helper.UmengHelper;
 import com.mjiayou.trecore.helper.VolleyHelper;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.ProcessUtil;
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 
 /**
  * Created by treason on 16/5/14.
  */
 public class TCApp extends Application {
 
-    // APP TAG
+    // APP-TAG
     private static final String TAG = "TCApp";
     // APP_NAME
     public final String APP_NAME = "trecoredemo";
@@ -94,26 +93,16 @@ public class TCApp extends Application {
         /**
          * 初始化 配置信息
          */
-        TCConfigs.init(mContext);
+        Configs.init(mContext);
 
         /**
          * 初始化 第三方库
          */
-        VolleyHelper.init(mContext);
+        VolleyHelper.get().init(mContext);
         GsonHelper.init(mContext);
         ImageLoaderHelper.init(mContext);
         UmengHelper.init(mContext);
         PullToRefreshHelper.init(mContext);
         StethoHelper.init(mContext);
-    }
-
-    /**
-     * 获取RequestQueue对象
-     */
-    public RequestQueue getRequestQueue() {
-        if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(mContext);
-        }
-        return mRequestQueue;
     }
 }

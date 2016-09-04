@@ -30,9 +30,9 @@ import com.mjiayou.trecore.util.ExitUtil;
 import com.mjiayou.trecore.util.LogUtil;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ThemeUtil;
+import com.mjiayou.trecore.widget.Configs;
+import com.mjiayou.trecore.widget.Params;
 import com.mjiayou.trecore.widget.SwipeBackLayout;
-import com.mjiayou.trecore.widget.TCConfigs;
-import com.mjiayou.trecore.widget.TCParams;
 import com.mjiayou.trecore.widget.ToolbarHelper;
 import com.mjiayou.trecore.widget.dialog.DefaultProgressDialog;
 import com.mjiayou.trecore.widget.dialog.TCDialog;
@@ -171,7 +171,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onResume");
         }
         super.onResume();
-        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
+        if (Configs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onResume(this);
         }
     }
@@ -182,7 +182,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
             LogUtil.i(TAG, TAG_LIFE_CYCLE + " | onPause");
         }
         super.onPause();
-        if (TCConfigs.SWITCH_UMENG_ANALYTICS_ON) {
+        if (Configs.SWITCH_UMENG_ANALYTICS_ON) {
             MobclickAgent.onPause(this);
         }
     }
@@ -377,17 +377,17 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
 
             // 如果mLoadingDialog不存在，则创建
             if (mLoadingDialog == null) {
-                switch (TCConfigs.LOADING_STYLE) {
+                switch (Configs.LOADING_STYLE) {
                     default:
-                    case TCParams.LOADING_STYLE_DEFAULT_PROGRESS: {
+                    case Params.LOADING_STYLE_DEFAULT_PROGRESS: {
                         mLoadingDialog = DefaultProgressDialog.createDialog(mContext);
                         break;
                     }
-                    case TCParams.LOADING_STYLE_TC_PROGRESS: {
+                    case Params.LOADING_STYLE_TC_PROGRESS: {
                         mLoadingDialog = TCProgressDialog.createDialog(mContext);
                         break;
                     }
-                    case TCParams.LOADING_STYLE_TC_LOADING: {
+                    case Params.LOADING_STYLE_TC_LOADING: {
                         mLoadingDialog = TCLoadingDialog.createDialog(mContext);
                         break;
                     }
@@ -434,7 +434,7 @@ public class TCActivity extends AppCompatActivity implements RequestAdapter.Data
      */
     public RequestAdapter getRequestAdapter() {
         if (mRequestAdapter == null) {
-            mRequestAdapter = new RequestAdapter(mContext, mContext, this);
+            mRequestAdapter = new RequestAdapter(mContext, this);
         }
         return mRequestAdapter;
     }

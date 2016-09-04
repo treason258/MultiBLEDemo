@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.Optional;
 
-import com.mjiayou.trecore.widget.TCConfigs;
+import com.mjiayou.trecore.widget.Configs;
 import com.mjiayou.trecoredemo.R;
 
 /**
@@ -130,10 +130,10 @@ public class TCBottomMenuDialog extends TCDialog {
             switch (mLayoutType) {
                 default:
                 case DEFAULT:
-                    ViewUtil.setWidthAndHeight(mViewRoot, TCConfigs.getScreenWidth(WIDTH_RATIO_BIG), WindowManager.LayoutParams.WRAP_CONTENT);
+                    ViewUtil.setWidthAndHeight(mViewRoot, Configs.getScreenWidth(WIDTH_RATIO_BIG), WindowManager.LayoutParams.WRAP_CONTENT);
                     break;
                 case HOHO:
-                    ViewUtil.setWidthAndHeight(mViewRoot, TCConfigs.getScreenWidth(WIDTH_RATIO_FULL), WindowManager.LayoutParams.WRAP_CONTENT);
+                    ViewUtil.setWidthAndHeight(mViewRoot, Configs.getScreenWidth(WIDTH_RATIO_FULL), WindowManager.LayoutParams.WRAP_CONTENT);
                     break;
             }
         }

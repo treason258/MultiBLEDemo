@@ -21,24 +21,24 @@ public class BannerLayoutChangeListener implements View.OnLayoutChangeListener {
             if (mRecyclerViewPager.getChildAt(1) != null) {
                 if (mRecyclerViewPager.getCurrentPosition() == 0) {
                     View v1 = mRecyclerViewPager.getChildAt(1);
-                    v1.setScaleY(TCConfigs.BANNER_SCALE);
-                    v1.setScaleX(TCConfigs.BANNER_SCALE);
+                    v1.setScaleY(Configs.BANNER_SCALE);
+                    v1.setScaleX(Configs.BANNER_SCALE);
                 } else {
                     View v1 = mRecyclerViewPager.getChildAt(0);
-                    v1.setScaleY(TCConfigs.BANNER_SCALE);
-                    v1.setScaleX(TCConfigs.BANNER_SCALE);
+                    v1.setScaleY(Configs.BANNER_SCALE);
+                    v1.setScaleX(Configs.BANNER_SCALE);
                 }
             }
         } else {
             if (mRecyclerViewPager.getChildAt(0) != null) {
                 View v0 = mRecyclerViewPager.getChildAt(0);
-                v0.setScaleY(TCConfigs.BANNER_SCALE);
-                v0.setScaleX(TCConfigs.BANNER_SCALE);
+                v0.setScaleY(Configs.BANNER_SCALE);
+                v0.setScaleX(Configs.BANNER_SCALE);
             }
             if (mRecyclerViewPager.getChildAt(2) != null) {
                 View v2 = mRecyclerViewPager.getChildAt(2);
-                v2.setScaleY(TCConfigs.BANNER_SCALE);
-                v2.setScaleX(TCConfigs.BANNER_SCALE);
+                v2.setScaleY(Configs.BANNER_SCALE);
+                v2.setScaleX(Configs.BANNER_SCALE);
             }
         }
     }

@@ -13,9 +13,9 @@ import com.mjiayou.trecoredemo.R;
 /**
  * Created by treason on 15/6/8.
  */
-public class TCConfigs {
+public class Configs {
 
-    private static final String TAG = "TCConfigs";
+    private static final String TAG = "Configs";
     public static final String TRETEST = "tretest";
 
     // DEBUG开关
@@ -112,7 +112,7 @@ public class TCConfigs {
     public static final long TIME_GET_VERIFY_CODE_INTERVAL = 1000; // 获取验证码点击一次之后等待时间内间隔时间-1s
 
     // 系统的Loading样式
-    public static int LOADING_STYLE = TCParams.LOADING_STYLE_DEFAULT_PROGRESS;
+    public static int LOADING_STYLE = Params.LOADING_STYLE_DEFAULT_PROGRESS;
 
     public static final float BANNER_SCALE = 1f;  // Banner缩小时的缩放比例
 
@@ -122,6 +122,21 @@ public class TCConfigs {
     public static final int CAMERA_PREVIEW_MIN_WIDTH = 720; // 相机预览尺寸最小宽度
     public static final int CAMERA_PICTURE_MIN_WIDTH = 1080; // 相机拍照尺寸最小宽度
     public static final int CAMERA_DISPLAY_ORIENTATION = 90; // 相机默认拍摄角度
+
+    // volley
+    public static final int DEFAULT_TIMEOUT_MS = 100 * 1000; // 默认超时时间 - DefaultRetryPolicy.DEFAULT_TIMEOUT_MS=2500
+    public static final int DEFAULT_MAX_RETRIES = 1; // 默认重连次数 - DefaultRetryPolicy.DEFAULT_MAX_RETRIES=1
+    public static final float DEFAULT_BACKOFF_MULT = 1.0f; // DefaultRetryPolicy.DEFAULT_BACKOFF_MULT=1.0f
+
+    public static final String TAG_VOLLEY = "net_volley";
+    public static final String TAG_REQUEST_URL = "request_url";
+    public static final String TAG_REQUEST_METHOD = "request_method";
+    public static final String TAG_REQUEST_HEADERS = "request_headers";
+    public static final String TAG_REQUEST_BODY = "request_body";
+    public static final String TAG_REQUEST_PARAMS = "request_params";
+    public static final String TAG_RESPONSE = "response_data";
+    public static final String TAG_RESPONSE_STRING = "response_data_string";
+    public static final String TAG_RESPONSE_OBJECT = "response_data_object";
 
     // ******************************** temp cache ********************************
 
@@ -185,7 +200,7 @@ public class TCConfigs {
     }
 
     public static void setPackageName(String packageName) {
-        TCConfigs.packageName = packageName;
+        Configs.packageName = packageName;
     }
 
     public static int getVersionCode() {
@@ -193,7 +208,7 @@ public class TCConfigs {
     }
 
     public static void setVersionCode(int versionCode) {
-        TCConfigs.versionCode = versionCode;
+        Configs.versionCode = versionCode;
     }
 
     public static String getVersionName() {
@@ -201,7 +216,7 @@ public class TCConfigs {
     }
 
     public static void setVersionName(String versionName) {
-        TCConfigs.versionName = versionName;
+        Configs.versionName = versionName;
     }
 
     public static int getScreenWidth() {
@@ -213,7 +228,7 @@ public class TCConfigs {
     }
 
     public static void setScreenWidth(int screenWidth) {
-        TCConfigs.screenWidth = screenWidth;
+        Configs.screenWidth = screenWidth;
     }
 
     public static int getScreenHeight() {
@@ -225,7 +240,9 @@ public class TCConfigs {
     }
 
     public static void setScreenHeight(int screenHeight) {
-        TCConfigs.screenHeight = screenHeight;
+        Configs.screenHeight = screenHeight;
     }
+
+    // ******************************** project ********************************
 }
 

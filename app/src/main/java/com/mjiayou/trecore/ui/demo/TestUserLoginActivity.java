@@ -15,7 +15,7 @@ import com.mjiayou.trecore.event.UserLoginStatusEvent;
 import com.mjiayou.trecore.util.SharedUtil;
 import com.mjiayou.trecore.util.ToastUtil;
 import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.widget.TCRouter;
+import com.mjiayou.trecore.widget.Router;
 import com.mjiayou.trecoredemo.R;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
@@ -51,7 +51,7 @@ public class TestUserLoginActivity extends TCActivity {
                 break;
             }
             case R.id.tv_register: {
-                TCRouter.openTestUserRegisterActivity(mContext);
+                Router.openTestUserRegisterActivity(mContext);
                 break;
             }
             case R.id.tv_login: {
