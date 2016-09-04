@@ -12,10 +12,9 @@ import android.widget.TextView;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.bigkoo.pickerview.view.WheelTime;
-import com.mjiayou.trecore.util.DateUtil;
-import com.mjiayou.trecore.util.UserUtil;
-import com.mjiayou.trecore.util.ViewUtil;
 import com.mjiayou.trecore.helper.Configs;
+import com.mjiayou.trecore.util.DateUtil;
+import com.mjiayou.trecore.util.ViewUtil;
 import com.mjiayou.trecoredemo.R;
 
 import java.util.Calendar;
@@ -86,7 +85,7 @@ public class TCBirthdayDialog extends TCDialog {
         }
 
         try {
-            String birthday = UserUtil.getUserInfo().getBirthdate();
+            String birthday = "";
             Calendar calendar = Calendar.getInstance();
             if (!TextUtils.isEmpty(birthday)) {
                 calendar = DateUtil.parseCalendar(birthday, DateUtil.FormatType.FORMAT_102);

@@ -30,7 +30,7 @@ public class UserUtil {
      * 获取用户详细信息之后的操作
      */
     public static void doGetUserInfo(TCUser user) {
-        UserUtil.setUserID(user.getUserId());
+        UserUtil.setUserID(user.getId());
         UserUtil.setUserInfo(user);
     }
 

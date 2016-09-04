@@ -5,26 +5,22 @@ package com.mjiayou.trecore.bean;
  */
 public class TCResponse {
 
-//    字段	类型	是否必选	说明
-//    errorCode	字符串	是	业务处理的返回码，成功为0
-//    errorReason	字符串	否	错误说明
+    private String ret;
+    private String msg;
 
-    private String errorCode;
-    private String errorReason;
-
-    public String getErrorCode() {
-        return errorCode;
+    public String getRet() {
+        return ret;
     }
 
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
+    public void setRet(String ret) {
+        this.ret = ret;
     }
 
-    public String getErrorReason() {
-        return errorReason;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setErrorReason(String errorReason) {
-        this.errorReason = errorReason;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }
