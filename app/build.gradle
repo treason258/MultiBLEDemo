@@ -89,10 +89,6 @@ android {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
 
-    sourceSets {
-        main.res.srcDirs += 'src/main/res-trecore'
-    }
-
     productFlavors {
         // -1.调试包 - alpha
         alpha {}

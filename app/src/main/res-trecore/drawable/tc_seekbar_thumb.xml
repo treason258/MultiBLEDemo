@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/tc_vector_oval_32_88f6c71e" android:state_checked="true" />
-    <item android:drawable="@drawable/tc_vector_oval_32_88f6c71e" android:state_pressed="true" />
-    <item android:drawable="@drawable/tc_vector_oval_32_88f6c71e" android:state_selected="true" />
-    <item android:drawable="@drawable/tc_vector_oval_32_88f6c71e" />
-</selector>

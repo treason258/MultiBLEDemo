@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- tc-color -->
-    <drawable name="tc_transparent">@color/tc_transparent</drawable>
-
-    <!-- **************** project **************** -->
-
-</resources>
