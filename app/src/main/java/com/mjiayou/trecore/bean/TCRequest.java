@@ -5,9 +5,6 @@ package com.mjiayou.trecore.bean;
  */
 public class TCRequest {
 
-    private String param1;
-    private String param2;
-
 //    字段	类型	是否必选	说明
 //    requestId	字符串	是	请求时的
 //    tokenId	字符串	否	用户登陆后的认证令牌
@@ -19,6 +16,9 @@ public class TCRequest {
 //    例如：
 //    加密之后的Base64是：YAnwrzfEsvwCXfi6OYwqgQ==
 //    红色部分即为Signature的值
+
+    private String param1;
+    private String param2;
 
     private String requestId;
     private String tokenId;
