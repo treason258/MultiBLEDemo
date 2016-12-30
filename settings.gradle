@@ -1,7 +1,0 @@
-include ':app'
-include ':TreCore', ':lib_TreCore', ':lib_TreView', ':lib_Umeng'
-
-project(':TreCore').projectDir = new File('/Users/treason/Documents/AndroidStudio/TreCore/app')
-project(':lib_TreCore').projectDir = new File('/Users/treason/Documents/AndroidStudio/TreCore/lib_TreCore')
-project(':lib_TreView').projectDir = new File('/Users/treason/Documents/AndroidStudio/TreCore/lib_TreView')
-project(':lib_Umeng').projectDir = new File('/Users/treason/Documents/AndroidStudio/TreCore/lib_Umeng')
